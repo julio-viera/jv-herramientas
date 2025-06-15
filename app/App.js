@@ -134,7 +134,7 @@ export class App {
 		this.pantalla_carga.mensaje = this._("Cargando configuración") + "..."
 		this.pantalla_carga.porcentaje_carga = 10
 
-		this.getFetch("/config/config.json")
+		this.getFetch("config/config.json")
 			.then(res => res.json())
 			.then((json) => {
 				if (json && json.app) {
