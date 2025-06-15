@@ -1,6 +1,6 @@
 
-const log = true
-const version = 2
+const log = false
+const version = 3
 const nombre_cache = 'app-cache'
 
 
