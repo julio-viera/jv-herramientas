@@ -1,0 +1,35 @@
+
+<div class="modulo-componente-contenido-contenedor-1">
+	<h1 class="ui-titulo">MIME Types</h1>
+
+	<div class="descripcion">Show MIME Types and its commons extensions.</div>
+</div>
+
+<div class="modulo-componente-contenido-contenedor-1">
+
+    <div class="panel-ex">
+     	<div class="flex-h">
+      		<button modulo-elemento="btn-mimes-todos" class="btn">All</button>
+
+        	<label for="filtro-mime-types-de-video">Video</label>
+	     	<input type="radio" class="control" name="filtro-mime-types-tipo" modulo-elemento="filtro-mime-types-de-video" id="filtro-mime-types-de-video" />
+
+			<label for="filtro-mime-types-de-imagen">Image</label>
+    		<input type="radio" class="control" name="filtro-mime-types-tipo" modulo-elemento="filtro-mime-types-de-imagen" id="filtro-mime-types-de-imagen" />
+
+      		<label for="filtro-mime-types-de-sonido">Sound</label>
+       		<input type="radio" class="control" name="filtro-mime-types-tipo" modulo-elemento="filtro-mime-types-de-sonido" id="filtro-mime-types-de-sonido" />
+
+       		<label for="filtro-mime-types-de-texto">Text</label>
+      		<input type="radio" class="control" name="filtro-mime-types-tipo" modulo-elemento="filtro-mime-types-de-texto" id="filtro-mime-types-de-texto" />
+
+         	<input type="text" class="control mr-0-1" modulo-elemento="filtro-mime-type-buscar" placeholder="🔍" />
+     	</div>
+    </div>
+
+    <div class="panel-ex">
+        <div class="listado-v" modulo-elemento="listar-mime-types">
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,110 @@
+:root {
+	--bg-ayuda: #d9e6e9;
+	--br-ayuda: #252a2b;
+	--fc-ayuda: #212121;
+
+	--bg-ayuda-titulo: #e3eaff;
+	--br-ayuda-titulo: #afb5c7;
+	--fc-ayuda-titulo: #000000;
+
+	--bg-ayuda-seccion: #f3f3f3;
+	--br-ayuda-seccion: #c5c5c5;
+	--fc-ayuda-seccion: #012120;
+
+	--bg-ayuda-info-item: #eef1cd;
+	--br-ayuda-info-item: #adaf93;
+	--fc-ayuda-info-item: #242727;
+}
+:root[data-theme="oscuro"] {
+	--bg-ayuda: #2c3d41;
+	--br-ayuda: #252a2b;
+	--fc-ayuda: #ddd;
+
+	--bg-ayuda-titulo: #152125;
+	--br-ayuda-titulo: #324e57;
+	--fc-ayuda-titulo: #dbdbdb;
+
+	--bg-ayuda-seccion: #253033;
+	--br-ayuda-seccion: #42555b;
+	--fc-ayuda-seccion: #dbdbdb;
+
+	--bg-ayuda-info-item: #4a4b43;
+	--br-ayuda-info-item: #67695b;
+	--fc-ayuda-info-item: #eff1e3;
+}
+
+ui-panel-ayuda {
+	position: fixed !important;
+	display: none;
+	top: 14%;
+	right: 1em;
+	width: max(50%, 30em);
+	max-width: 90%;
+	height: 80%;
+	z-index: var(--z-index-panel);
+	background-color: var(--bg-ayuda);
+	color: var(--fc-ayuda);
+	padding: 3em 1em 1em 1em;
+	border-radius: 1em;
+	border: solid 1px var(--br-ayuda);
+	box-shadow: #2d2d2d 3px 3px 8px;
+	overflow: auto;
+}
+
+main[data-distribucion="arriba"] ui-panel-ayuda {
+	top: 9em;
+	height: calc(90% - 9em);
+}
+
+main[data-distribucion="izquierda"] ui-panel-ayuda {
+	top: 1em;
+	height: calc(90% - 8em);
+}
+
+#btn-cerrar-ayuda {
+	position: absolute;
+	top: 1em;
+	right: 1em;
+}
+
+.ui-ayuda-titulo{
+	font-size: 1.2em;
+	padding: 0.5em 1em;
+	margin: 0.5em 0em;
+	border-radius: 3px;
+	border: solid 1px var(--br-ayuda-titulo);
+	background-color: var(--bg-ayuda-titulo);
+	color: var(--fc-ayuda-titulo);
+}
+
+.ui-ayuda-seccion{
+	font-size: 1.0em;
+	padding: 0.5em 1em;
+	margin: 0.5em 0em;
+	border-radius: 3px;
+	border: solid 1px var(--br-ayuda-seccion);
+	background-color: var(--bg-ayuda-seccion);
+	color: var(--fc-ayuda-seccion);
+}
+
+.ui-ayuda-seccion-titulo{
+	font-size: 1.1em;
+	margin: 0.5em 0;
+	font-weight: bold;
+}
+
+.ui-ayuda-info-item {
+	padding: 1em;
+	margin: 1em 0px;
+	border-radius: 3px;
+	border: solid 1px var(--br-ayuda-info-item);
+	background-color: var(--bg-ayuda-info-item);
+	color: var(--fc-ayuda-info-item);
+}
+
+.ui-ayuda-info-item::before {
+	content: 'ⓘ';
+	margin-right: 1em;
+	font-weight: bold;
+	color: var(--fc-ayuda-info-item);
+}

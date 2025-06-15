@@ -1,0 +1,47 @@
+
+<div style="max-width: 60em; margin: 1em auto;">
+	<h1 class="ui-titulo">Base 64 Decode</h1>
+
+	<div class="descripcion">
+		Decodes a base64 text string. If possible, a view of the content, image, video, audio, pdf, is created.
+	</div>
+</div>
+
+<div class="modulo-componente-contenido-contenedor-2">
+
+	<div class="flex-h centrado-h">
+
+		<div class="panel">
+			<div class="flex-h">
+				<div class="mr-1-0"><b>Base 64 Input:</b></div>
+				<button modulo-elemento="decodificar-btn-entrada-pegar" class="btn">Paste</button>
+				<button modulo-elemento="decodificar-btn-entrada-copiar" class="btn">Copy</button>
+				<button modulo-elemento="decodificar-btn-entrada-limpiar" class="btn">Clear</button>
+			</div>
+
+	        <textarea modulo-elemento="decodificar-entrada" class="control textarea-largo-v"></textarea>
+	        <button modulo-elemento="decodificar-btn-procesar" class="btn">Decode</button>
+	    </div>
+
+	    <div class="panel">
+			<div class="flex-h">
+				<div class="mr-1-0"><b>Decoded Output:</b></div>
+				<button modulo-elemento="decodificar-btn-salida-copiar" class="btn">Copy</button>
+				<button modulo-elemento="decodificar-btn-salida-limpiar" class="btn">Clear</button>
+			</div>
+
+	        <textarea modulo-elemento="decodificar-salida" class="control textarea-largo-v"></textarea>
+			<br />
+			<div modulo-elemento="decodificar-mime-detectado"></div>
+	    </div>
+
+	</div>
+
+	<div class="panel centrado-propio-h" modulo-elemento="decodificar-panel-contenedor-vista">
+		<div modulo-elemento="decodificar-contenedor-vista"></div>
+		<br />
+		<a href="" modulo-elemento="decodificar-link-descarga" class="btn">Download</a>
+	</div>
+</div>
+
+<link rel="stylesheet" href="app/modulo/base64decodificar/css/modulo.css">

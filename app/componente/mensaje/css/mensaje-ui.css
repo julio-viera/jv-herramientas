@@ -1,0 +1,65 @@
+:root {
+	--bg-mensaje: #e1e8ef;
+
+	--fc-mensaje: #222;
+
+	--br-mensaje: #222;
+
+	--bg-btn-mensaje: #919191;
+	--fc-btn-mensaje: #000;
+	--bg-btn-mensaje-activo: #d9d9d9;
+	--fc-btn-mensaje-activo: #000;
+}
+
+:root[data-theme="oscuro"] {
+	--bg-mensaje: #243a51;
+
+	--fc-mensaje: #fff;
+
+	--br-mensaje: #666;
+
+	--bg-btn-mensaje: #297187;
+	--fc-btn-mensaje: #fff;
+	--bg-btn-mensaje-activo: #42aac9;
+	--fc-btn-mensaje-activo: #fff;
+}
+
+ui-mensaje {
+	position: fixed;
+	font-size: 1em;
+	z-index: var(--z-index-mensaje);
+	bottom: 0.5em;
+	left: 50%;
+	transform: translateX(-50%);
+	margin: 0 auto;
+	padding: 2em 3.2em 2em 2em;
+	background-color: var(--bg-mensaje);
+	color: var(--fc-mensaje);
+	border: solid 1px var(--br-mensaje);
+	border-radius: 1em;
+	display: none;
+}
+
+ui-mensaje #mensaje-texto {
+	color: var(--fc-mensaje);
+	max-height: 15vh;
+	overflow: auto;
+}
+
+ui-mensaje #mensaje-cerrar {
+	position: absolute;
+	right: 0.5em;
+	top: 0.5em;
+	padding: 0.5em;
+	color: var(--fc-btn-mensaje);
+	background-color: var(--bg-btn-mensaje);
+	border-radius: 50%;
+	cursor: pointer;
+	width: 2em;
+	text-align: center;
+}
+
+ui-mensaje #mensaje-cerrar:hover {
+	color: var(--fc-btn-mensaje-activo);
+	background-color: var(--bg-btn-mensaje-activo);
+}

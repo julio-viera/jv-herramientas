@@ -1,0 +1,51 @@
+
+<div class="modulo-componente-contenido-contenedor-1">
+	<h1 class="ui-titulo">Camera</h1>
+
+	<div class="descripcion">Easy access to cameras. Allows you to take screenshots and make video and audio recordings.</div>
+</div>
+
+<div class="modulo-componente-contenido-contenedor-2">
+
+    <div class="panel-ex">
+     	<div class="flex-h mr-1-0">
+      		<button modulo-elemento="btn-iniciar-camara" class="btn">Start Camera</button>
+      		<button modulo-elemento="btn-detener-camara" class="btn">Stop Camera</button>
+     	</div>
+       	<div class="flex-h mr-1-0">
+        	<label>Cameras:</label>
+        	<select modulo-elemento="listado-camaras" class="control"></select>
+         	<label>Audio:</label>
+        	<select modulo-elemento="listado-microfonos" class="control"></select>
+     	</div>
+    </div>
+
+    <div class="panel-ex">
+    	<div class="flex-v">
+        	<video class="control" autoplay muted controls modulo-elemento="video-camara" />
+    	</div>
+    </div>
+
+    <div class="panel-ex">
+    	<div class="flex-h">
+     		<div class="flex-v">
+       			<div class="flex-h mr-0-1">
+       				<h2>Capture Image</h2>
+         			<button modulo-elemento="btn-captura-camara" class="btn">Capture Image</button>
+       			</div>
+		      	<canvas class="control" modulo-elemento="imagen-camara"></canvas>
+		       	<a href="" modulo-elemento="btn-descargar-imagen-camara" class="btn" >Download</a>
+       		</div>
+       		<div class="flex-v">
+      			<div class="flex-h mr-0-1">
+      				<h2>Video Recording</h2>
+        			<button modulo-elemento="btn-grabar-video-iniciar" class="btn">Start Recording</button>
+        			<button modulo-elemento="btn-grabar-video-detener" class="btn">Stop Recording</button>
+      			</div>
+		      	<video class="control" modulo-elemento="grabacion-video" autoplay muted controls></video>
+		       	<a href="" modulo-elemento="btn-descargar-grabacion-video" class="btn" >Download</a>
+      		</div>
+    	</div>
+    </div>
+
+</div>

@@ -1,0 +1,64 @@
+
+<div class="modulo-componente-contenido-contenedor-1">
+	<h1 class="ui-titulo">URL Parser</h1>
+
+	<div class="descripcion">Parses a URL and displays its components separately.</div>
+</div>
+
+<div class="modulo-componente-contenido-contenedor-2">
+
+	<div class="flex-v">
+
+	    <div class="panel">
+	     	<div class="flex-h mr-1-0">
+	      		<button modulo-elemento="btn-url-pegar" class="btn">Paste</button>
+	      		<button modulo-elemento="btn-url-copiar" class="btn">Copy</button>
+	      		<button modulo-elemento="btn-url-limpiar" class="btn">Clear</button>
+	     	</div>
+	       	<div class="flex-h mr-1-0">
+	        	<label>URL</label>
+	        	<textarea modulo-elemento="url-entrada" class="control textarea-estandar"></textarea>
+	     	</div>
+	    </div>
+
+	    <div class="panel">
+	   		<div class="mr-1-0">
+	     		<div class="flex-h mr-1">
+	       			<label><b>Protocol: </b></label>
+	          		<div modulo-elemento="url-protocolo"></div>
+	       		</div>
+	       		<div class="flex-h mr-1">
+	     			<label><b>User: </b></label>
+	          		<div modulo-elemento="url-usuario"></div>
+	      		</div>
+	      		<div class="flex-h mr-1">
+	     			<label><b>Password: </b></label>
+	          		<div modulo-elemento="url-clave"></div>
+	      		</div>
+
+	      		<div class="flex-h mr-1">
+	     			<label><b>Host: </b></label>
+	          		<div modulo-elemento="url-host"></div>
+	      		</div>
+	      		<div class="flex-h mr-1">
+	     			<label><b>Port: </b></label>
+	          		<div modulo-elemento="url-puerto"></div>
+	      		</div>
+	      		<div class="flex-h mr-1">
+	     			<label><b>Path: </b></label>
+	          		<div modulo-elemento="url-ruta"></div>
+	      		</div>
+	      		<div class="flex-h mr-1">
+	     			<label><b>Parameters: </b></label>
+	          		<div modulo-elemento="url-parametros"></div>
+	      		</div>
+
+	      		<div class="mr-1">
+	     			<label><b>Parameters key-value</b></label>
+	          		<div modulo-elemento="url-parametros-desplegados" class="mr-1-0"></div>
+	      		</div>
+
+	   		</div>
+	    </div>
+	</div>
+</div>

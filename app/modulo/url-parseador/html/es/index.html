@@ -1,0 +1,63 @@
+
+<div class="modulo-componente-contenido-contenedor-1">
+	<h1 class="ui-titulo">Parseo de URL</h1>
+
+	<div class="descripcion">Parsea una URL y muestra sus componentes por separado.</div>
+</div>
+
+<div class="modulo-componente-contenido-contenedor-2">
+
+	<div class="flex-v">
+	    <div class="panel">
+	     	<div class="flex-h mr-1-0">
+	      		<button modulo-elemento="btn-url-pegar" class="btn">Pegar</button>
+	      		<button modulo-elemento="btn-url-copiar" class="btn">Copiar</button>
+	      		<button modulo-elemento="btn-url-limpiar" class="btn">Limpiar</button>
+	     	</div>
+	       	<div class="flex-h mr-1-0">
+	        	<label>URL</label>
+	        	<textarea modulo-elemento="url-entrada" class="control textarea-estandar"></textarea>
+	     	</div>
+	    </div>
+
+	    <div class="panel">
+	   		<div class="mr-1-0">
+	     		<div class="flex-h mr-1">
+	       			<label><b>Protocolo: </b></label>
+	          		<div modulo-elemento="url-protocolo"></div>
+	       		</div>
+	       		<div class="flex-h mr-1">
+	     			<label><b>Usuario: </b></label>
+	          		<div modulo-elemento="url-usuario"></div>
+	      		</div>
+	      		<div class="flex-h mr-1">
+	     			<label><b>Contraseña: </b></label>
+	          		<div modulo-elemento="url-clave"></div>
+	      		</div>
+
+	      		<div class="flex-h mr-1">
+	     			<label><b>Host: </b></label>
+	          		<div modulo-elemento="url-host"></div>
+	      		</div>
+	      		<div class="flex-h mr-1">
+	     			<label><b>Puerto: </b></label>
+	          		<div modulo-elemento="url-puerto"></div>
+	      		</div>
+	      		<div class="flex-h mr-1">
+	     			<label><b>Ruta: </b></label>
+	          		<div modulo-elemento="url-ruta"></div>
+	      		</div>
+	      		<div class="flex-h mr-1">
+	     			<label><b>Parámetros: </b></label>
+	          		<div modulo-elemento="url-parametros"></div>
+	      		</div>
+
+	      		<div class="mr-1">
+	     			<label><b>Parámetros nombre-valor</b></label>
+	          		<div modulo-elemento="url-parametros-desplegados" class="mr-1-0"></div>
+	      		</div>
+
+	   		</div>
+	    </div>
+	</div>
+</div>

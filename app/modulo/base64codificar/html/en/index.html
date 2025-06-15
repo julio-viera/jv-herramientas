@@ -1,0 +1,39 @@
+
+<div class="modulo-componente-contenido-contenedor-1">
+	<h1 class="ui-titulo">Base 64 Encode</h1>
+
+	<div class="descripcion">
+		Encodes a text string in Base64. It is also possible to encode a file.
+	</div>
+</div>
+
+<div class="modulo-componente-contenido-contenedor-2">
+
+	<div class="flex-h centrado-h">
+
+		<div class="panel">
+			<div class="flex-h">
+				<div class="mr-1-0"><b>String Input:</b></div>
+				<button modulo-elemento="codificar-btn-entrada-pegar" class="btn">Paste</button>
+				<button modulo-elemento="codificar-btn-entrada-copiar" class="btn">Copy</button>
+				<button modulo-elemento="codificar-btn-entrada-limpiar" class="btn">Clear</button>
+			</div>
+	        <textarea modulo-elemento="codificar-entrada" class="control textarea-largo-v"></textarea>
+	        <button modulo-elemento="codificar-btn-procesar" class="btn">Encode</button>
+	    </div>
+
+	    <div class="panel">
+			<div class="flex-h">
+				<div class="mr-1-0"><b>Encoded Output:</b></div>
+				<button modulo-elemento="codificar-btn-salida-copiar" class="btn">Copy</button>
+				<button modulo-elemento="codificar-btn-salida-limpiar" class="btn">Clear</button>
+			</div>
+	        <textarea modulo-elemento="codificar-salida" class="control textarea-largo-v"></textarea>
+			<br />
+			<input type="file" modulo-elemento="codificar-imp-archivo" class="control" />
+			<div modulo-elemento="codificar-mime-detectado"></div>
+	    </div>
+
+	</div>
+
+</div>

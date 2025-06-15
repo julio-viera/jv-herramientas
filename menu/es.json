@@ -1,0 +1,81 @@
+{
+
+	"menus": [
+		{
+			"id": "texto",
+			"nombre": "Texto",
+			"items": [
+				{
+					"id": "separador_lineas",
+					"nombre": "Separador en Líneas",
+					"accion": "#separador-en-lineas"
+				},
+				{
+					"id": "unir_lineas",
+					"nombre": "Unir Líneas",
+					"accion": "#unir-lineas"
+				}
+			]
+		},
+		{
+			"id": "web",
+			"nombre": "Web",
+			"items": [
+				{
+					"id": "url-parseador",
+					"nombre": "URL Parseador",
+					"accion": "#url-parseador"
+				},
+				{
+					"id": "url-parametros",
+					"nombre": "URL Parametros",
+					"accion": "#url-parametros"
+				},
+				{
+					"id": "jwt",
+					"nombre": "JWT",
+					"accion": "#jwt"
+				},
+				{
+					"id": "mime-types",
+					"nombre": "MIME Types",
+					"accion": "#mime-types"
+				}
+			]
+		},
+		{
+			"id": "convertir",
+			"nombre": "Convertir",
+			"items": [
+				{
+					"id": "base64codificar",
+					"nombre": "Codificar Base 64",
+					"accion": "#base64codificar"
+				},
+				{
+					"id": "base64decodificar",
+					"nombre": "Decodificar Base 64",
+					"accion": "#base64decodificar"
+				}
+			]
+		},
+		{
+			"id": "imagen-video-sonido",
+			"nombre": "Imagen - Vídeo - Sonido",
+			"items": [
+				{
+					"id": "codigos-qr",
+					"nombre": "Códigos QR",
+					"accion": "#codigos-qr"
+				},
+				{
+					"id": "camara",
+					"nombre": "Camara",
+					"accion": "#camara"
+				}
+			]
+		}
+
+	]
+
+}

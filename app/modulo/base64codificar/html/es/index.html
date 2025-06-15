@@ -1,0 +1,39 @@
+
+<div class="modulo-componente-contenido-contenedor-1">
+	<h1 class="ui-titulo">Codificar Base 64</h1>
+
+	<div class="descripcion">
+		Codifica un texto como una cadena de texto en base64. También es posible codificar un archivo.
+	</div>
+</div>
+
+<div class="modulo-componente-contenido-contenedor-2">
+
+	<div class="flex-h centrado-h">
+
+		<div class="panel">
+			<div class="flex-h">
+				<div class="mr-1-0"><b>Entrada en texto:</b></div>
+				<button modulo-elemento="codificar-btn-entrada-pegar" class="btn">Pegar</button>
+				<button modulo-elemento="codificar-btn-entrada-copiar" class="btn">Copiar</button>
+				<button modulo-elemento="codificar-btn-entrada-limpiar" class="btn">Limpiar</button>
+			</div>
+	        <textarea modulo-elemento="codificar-entrada" class="control textarea-largo-v"></textarea>
+	        <button modulo-elemento="codificar-btn-procesar" class="btn">Codificar</button>
+	    </div>
+
+	    <div class="panel">
+			<div class="flex-h">
+				<div class="mr-1-0"><b>Salida codificada:</b></div>
+				<button modulo-elemento="codificar-btn-salida-copiar" class="btn">Copiar</button>
+				<button modulo-elemento="codificar-btn-salida-limpiar" class="btn">Limpiar</button>
+			</div>
+	        <textarea modulo-elemento="codificar-salida" class="control textarea-largo-v"></textarea>
+			<br />
+			<input type="file" modulo-elemento="codificar-imp-archivo" />
+			<div modulo-elemento="codificar-mime-detectado"></div>
+	    </div>
+
+	</div>
+
+</div>

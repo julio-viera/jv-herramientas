@@ -1,0 +1,64 @@
+
+<div style="display: grid; grid-template-columns: 1fr; max-width: 60em; gap: 1em; margin: 1em auto;">
+	<h1 class="ui-titulo">Join Lines</h1>
+
+	<div class="descripcion">
+		<p>Given a multi-line input text, you can join them with a separator. You can specify the separator for the elements to join.</p>
+		<p>You can also assign a regular expression to filter the lines that are joined.</p>
+	</div>
+</div>
+
+<div style="display: grid; grid-template-columns: 1fr; max-width: 60em; gap: 1em; margin: 1em auto;">
+
+    <div class="panel-ex">
+  		<div class="flex-h">
+			<div class="mr-1-0"><b>Input:</b></div>
+			<button modulo-elemento="btn-entrada-pegar" class="btn">Paste</button>
+			<button modulo-elemento="btn-entrada-limpiar" class="btn">Clear</button>
+		</div>
+        <textarea modulo-elemento="entrada" class="control textarea-estandar"></textarea>
+    </div>
+
+    <div class="panel-ex">
+    	<div class="info">If you wish, you can assign a regular expression (without /\) to filter the lines that are joined.</div>
+     	<div class="flex-h">
+	        <div class="mr-1-0"><b>Filter:</b></div>
+	     	<input type="text" regexp="1" class="control" modulo-elemento="verificador" value="" placeholder="(opcional) Expresión regular (sin /\) para validar elementos." />
+			<select modulo-elemento="expresiones-regulares" class="control"></select>
+     	</div>
+    </div>
+
+    <div class="panel-ex">
+        <div class="flex-h">
+        	<div class="mr-1-0"><b>Separator:</b></div>
+	        <input type="text" class="control" modulo-elemento="separador" value="," />
+
+	        <button modulo-elemento="btn-procesar" class="btn">Process</button>
+        </div>
+    </div>
+
+    <div class="panel-ex">
+  		<div class="flex-h">
+			<div class="mr-1-0"><b>Output:</b></div>
+			<button modulo-elemento="btn-salida-copiar" class="btn">Copy</button>
+			<button modulo-elemento="btn-salida-limpiar" class="btn">Clear</button>
+		</div>
+    	<div class="mr-1-0"><span modulo-elemento="cantidad"></span> </div>
+        <textarea modulo-elemento="salida" class="control textarea-estandar"></textarea>
+        <br />
+        <a href="" modulo-elemento="link-descarga" class="btn">Download</a>
+    </div>
+
+    <div class="panel-ex">
+  		<div class="flex-h">
+			<div class="mr-1-0"><b>Filtered lines:</b></div>
+			<button modulo-elemento="btn-filtradas-copiar" class="btn">Copy</button>
+			<button modulo-elemento="btn-filtradas-limpiar" class="btn">Clear</button>
+		</div>
+        <div class="mr-1-0"><span modulo-elemento="cantidad_no_validos"></span></div>
+        <textarea modulo-elemento="salida_no_validos" class="control textarea-estandar"></textarea>
+        <br />
+        <a href="" modulo-elemento="link-descarga-filtrados" class="btn">Download Filtered Lines</a>
+    </div>
+
+</div>

@@ -1,0 +1,20 @@
+
+
+:root {
+	--bg-codigo: #c6d1e7;
+	--fc-codigo: #000;
+}
+
+:root[data-theme="oscuro"] {
+	--bg-codigo: #384663;
+	--fc-codigo: #fdffe5;
+}
+
+.codigo{
+	word-wrap: break-word;
+    max-width: 30em;
+    background: var(--bg-codigo);
+    color: var(--fc-codigo);
+    padding: 1em;
+    border-radius: 0.2em;
+}

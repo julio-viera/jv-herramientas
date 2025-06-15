@@ -1,0 +1,72 @@
+
+<div style="max-width: 60em; margin: 1em auto;">
+	<h1 class="ui-titulo">Codigos OTP</h1>
+
+	<div></div>
+</div>
+
+<div class="">
+
+	<div class="contenedor-base-64">
+
+		<div class="panel mr-1-0">
+			<div class="flex-h mr-1-0">
+				<div class="mr-0-1"><b>Generador de TOTP</b></div>
+    			<input type="text" modulo-elemento="otp-nombre-organizacion" class="control" value="Nombre Organización" />
+    			<input type="text" modulo-elemento="otp-nombre-app" class="control" value="Nombre Aplicación" />
+				<button modulo-elemento="btn-otp-secreto-nuevo" class="btn">Nuevo</button>
+			</div>
+			<div class="flex-h mr-1-0">
+				<div class="mr-0-1"><b>Secreto: </b></div>
+	        	<div modulo-elemento="otp-secreto" class="codigo" style="word-wrap: break-word; max-width: 30em;"></div>
+				<button modulo-elemento="btn-otp-secreto-copiar" class="btn">Copiar</button>
+			</div>
+			<div class="flex-h mr-1-0">
+				<div class="mr-0-1"><b>URI: </b></div>
+				<div modulo-elemento="otp-uri" class="codigo" style="word-wrap: break-word; max-width: 30em;"></div>
+				<button modulo-elemento="btn-otp-secreto-copiar" class="btn">Copiar</button>
+			</div>
+			<div class="flex-h mr-1-0">
+				<div class="mr-0-1"><b>QR: </b></div>
+				<div modulo-elemento="otp-qr" class=""></div>
+			</div>
+			<div class="flex-h mr-1-0">
+				<div class="mr-0-1"><b>Código de verificación:</b></div>
+				<div modulo-elemento="otp-codigo" class="codigo"></div>
+				<button modulo-elemento="btn-otp-codigo" class="btn">Copiar</button>
+			</div>
+			<div class="flex-h mr-1-0">
+				<div class="mr-0-1"><b>Verificar Código:</b></div>
+				<input modulo-elemento="otp-codigo-verificar" class="control" type="text" />
+				<button modulo-elemento="btn-otp-codigo-verificar" class="btn">Verificar</button>
+				<div modulo-elemento="otp-codigo-verificar-resultado"></div>
+			</div>
+	    </div>
+
+		<div class="panel mr-1-0">
+			<div class="flex-h mr-1-0">
+				<div class="mr-0-1"><b>Validar Secreto de TOTP</b></div>
+			</div>
+			<div class="flex-h mr-1-0">
+				<div class="mr-0-1"><b>Secreto: </b></div>
+				<button modulo-elemento="btn-otp-val-secreto-pegar" class="btn">Pegar</button>
+				<button modulo-elemento="btn-otp-val-secreto-copiar" class="btn">Copiar</button>
+			</div>
+			<div class="mr-1-0">
+	        	<textarea modulo-elemento="otp-val-secreto" class="control textarea-estandar"></textarea>
+			</div>
+
+			<div class="flex-h mr-1-0">
+				<div class="mr-0-1"><b>Código de verificación:</b></div>
+				<input modulo-elemento="otp-val-codigo" class="control" type="text" />
+				<div modulo-elemento="otp-val-verificado"></div>
+				<button modulo-elemento="btn-otp-val-codigo-copiar" class="btn">Copiar</button>
+			</div>
+	    </div>
+
+
+	</div>
+
+</div>
+
+<link rel="stylesheet" href="app/modulo/codigos-otp/css/modulo.css">

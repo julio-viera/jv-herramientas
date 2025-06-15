@@ -1,0 +1,7 @@
+@import url("base.css");
+@import url("../app/componente/pantalla_carga/css/pantalla_carga.css");
+@import url("../app/componente/menu/css/menu.css");
+@import url("../app/componente/mensaje/css/mensaje-ui.css");
+@import url("../app/componente/panel_ayuda/css/panel-ayuda.css");
+@import url("../app/componente/popup/css/popup.css");
+@import url("../app/componente/qr/css/qr.css");
