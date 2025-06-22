@@ -80,40 +80,58 @@ export default class CamaraModulo extends Modulo {
 
 	iniciarMedia(){
 
-		this.listado_camaras.innerHTML = ''
-		this.listado_microfonos.innerHTML = ''
-
-		if(!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices){
+		if(!navigator.mediaDevices){
 			this.mensaje = this._('No se puede acceder a la Camara.') + ' ' + this._('Compruebe los permisos.')
 			return
 		}
 
-		navigator.mediaDevices.enumerateDevices()
-    .then((devices) => {
+		navigator.mediaDevices.getUserMedia({
+				audio: true,
+				video: true
+			})
+      .then((stream) => {
+       	this.stream = stream
+        this.video_camara.srcObject = this.stream
 
-      devices.forEach((device) => {
-        //console.log(`${device.kind}: ${device.label} id = ${device.deviceId}`)
+        this.mensaje = this._('Camara transmitiendo.')
 
-        const op = document.createElement('option')
-        op.text = device.label
-        op.value = device.deviceId
+    		this.util.mostrar(this.btn_detener_camara)
+       	this.util.ocultar(this.btn_iniciar_camara)
 
-        if(device.kind == 'audioinput'){
-        	this.listado_microfonos.add(op)
-        }
-        else if(device.kind == 'videoinput'){
-        	this.listado_camaras.add(op)
-        }
-        else if(device.kind == 'audiooutput'){
-        }
+
+        navigator.mediaDevices.enumerateDevices()
+          .then((devices) => {
+
+        		this.listado_camaras.innerHTML = ''
+          	this.listado_microfonos.innerHTML = ''
+
+            devices.forEach((device) => {
+
+              const op = document.createElement('option')
+              op.text = device.label
+              op.value = device.deviceId
+
+              if(device.kind == 'audioinput'){
+              	this.listado_microfonos.add(op)
+              }
+              else if(device.kind == 'videoinput'){
+              	this.listado_camaras.add(op)
+              }
+              else if(device.kind == 'audiooutput'){
+              }
+            })
+          })
+          .catch((er) => {
+          	console.error(er)
+          	this.mensaje = this._('No se puede obtener Camaras.')
+          })
+
+      })
+      .catch((er) => {
+      	console.error(er)
+       	this.mensaje = this._('No se puede acceder a la Camara.')
       })
 
-      this.listado_camaras.dispatchEvent(new Event('change'))
-    })
-    .catch((er) => {
-    	console.error(er)
-    	this.mensaje = this._('No se puede obtener Camaras.')
-    })
 	}
 
 	seleccionarMedia(){
