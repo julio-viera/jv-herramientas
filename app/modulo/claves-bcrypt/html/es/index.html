@@ -1,0 +1,53 @@
+
+<div class="modulo-componente-contenido-contenedor-1">
+	<h1 class="ui-titulo">Generador de contraseñas encriptadas con Bcrypt</h1>
+
+	<div class="descripcion">Encripta una contraseña con Bcrypt, un algoritmo que modifica la salida con un salteado, lo que mejora considerablemente la seguridad al guardar contraseñas. <a href="https://en.wikipedia.org/wiki/Bcrypt" target="_blank">Más información sobre Bcrypt.</a></div>
+</div>
+
+<div class="modulo-componente-contenido-contenedor-1">
+
+    <div class="panel-ex">
+    	<div class="ui-subtitulo">Encriptar</div>
+
+     	<div class="flex-h">
+			<div class="mr-1-0"><b>Texto de Entrada (contraseña):</b></div>
+			<input modulo-elemento="entrada" class="control" />
+    		<button modulo-elemento="btn-entrada-pegar" class="btn">Pegar</button>
+	   	</div>
+
+
+       	<div class="flex-h">
+			<div class="mr-1-0"><b>Salida encriptada:</b></div>
+			<input modulo-elemento="salida" class="control" />
+      		<button modulo-elemento="btn-salida-copiar" class="btn">Copiar</button>
+	   	</div>
+
+    </div>
+
+    <div class="panel-ex">
+
+   		<div class="ui-subtitulo">Comparar</div>
+
+    	<div class="flex-h">
+			<div class="mr-1-0"><b>Texto (contraseña):</b></div>
+			<input modulo-elemento="comparar-texto" class="control" />
+   			<button modulo-elemento="btn-comparar-texto-pegar" class="btn">Pegar</button>
+	   	</div>
+
+
+      	<div class="flex-h">
+			<div class="mr-1-0"><b>Bcrypt encriptado:</b></div>
+			<input modulo-elemento="comparar-bcrypt" class="control" />
+     		<button modulo-elemento="btn-comparar-bcrypt-pegar" class="btn">Pegar</button>
+	   	</div>
+
+		<div class="flex-h">
+			<div class="mr-1-0"><b>El Texto y el Bcrypt son iguales:</b></div>
+			<div class="mr-1-0" modulo-elemento="comparar-resultado">--</div>
+		</div>
+    </div>
+
+
+
+</div>

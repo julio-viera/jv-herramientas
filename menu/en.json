@@ -75,6 +75,17 @@
 					"accion": "#camara"
 				}
 			]
+		},
+		{
+			"id": "criptografia",
+			"nombre": "Cryptography",
+			"items": [
+				{
+					"id": "claves-bcrypt",
+					"nombre": "Bcrypt Passwords",
+					"accion": "#claves-bcrypt"
+				}
+			]
 		}
 
 	]
