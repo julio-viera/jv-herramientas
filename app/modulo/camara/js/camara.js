@@ -28,13 +28,13 @@ export default class CamaraModulo extends Modulo {
 
 	disconnectedCallback() { }
 
-	cargar(app_config) {
+	cargar(app_config, opciones) {
 		if (this._cargado){
 			this.iniciarMedia()
 			return
 		}
 
-		super.cargar(app_config)
+		super.cargar(app_config, opciones)
 
 		this.cargarIndexDefecto()
 

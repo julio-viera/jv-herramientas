@@ -9,7 +9,7 @@
 			"mediano": "img/logo-230.png",
 			"chico": "img/logo-60.png"
 		},
-		"version": "0.9.0",
+		"version": "0.9.1",
 		"autor": "Julio Viera",
 		"licencia": "Apache-2.0",
 		"contacto": "",
@@ -43,6 +43,7 @@
 		"idioma": "es",
 		"escala": 1.0,
 		"tema": "original",
+		"tema_oscuro": "oscuro",
 		"distribucion": "arriba"
 	}
 }

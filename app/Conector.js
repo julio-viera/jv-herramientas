@@ -6,6 +6,7 @@ export class Conector {
 		this.config = config
 		this.ruta_base = this.config && this.config.ruta_base ? this.config.ruta_base : ''
 		this.cabeceras = this.config && this.config.cabeceras ? this.config.cabeceras : {}
+		this.app = this.config && this.config.app_ref ? this.config.app_ref : null
 	}
 
 	agregarCabecera(nombre, valor) {
@@ -24,8 +25,10 @@ export class Conector {
 
 		return fetch(this.ruta_base + uri, { method: 'GET', headers: cab }).then((res) => {
 			if (res.status == 402) {
-				window.App.mensaje = this._("No está logeado.")
-				window.App.salir()
+				if(this.app){
+					this.app.mensaje = this._("No está logeado.")
+					this.app.salir()
+				}
 				return null
 			}
 			return res
@@ -46,8 +49,10 @@ export class Conector {
 
 		return fetch(this.ruta_base + uri, { method: 'POST', headers: cab, body: datos }).then((res) => {
 			if (res.status == 402) {
-				window.App.mensaje = this._("No está logeado.")
-				window.App.salir()
+				if(this.app){
+					this.app.mensaje = this._("No está logeado.")
+					this.app.salir()
+				}
 				return null
 			}
 			return res

@@ -21,10 +21,10 @@ export default class Inicio extends Modulo {
 
 	disconnectedCallback() { super.disconnectedCallback() }
 
-	cargar(app_config) {
+	cargar(app_config, opciones) {
 		if (this._cargado) return
 
-		super.cargar(app_config)
+		super.cargar(app_config, opciones)
 
 		this.cargarIndexDefecto()
 		this.addEventListener('ModuloCargado', this.tomaUI)
@@ -46,7 +46,7 @@ export default class Inicio extends Modulo {
 
 		this.app_menu.innerHTML = ''
 
-		for (const grupo of window.App.menu.grupos) {
+		for (const grupo of this.opciones.app_ref.menu.grupos) {
 
 			for (const item of grupo.items) {
 

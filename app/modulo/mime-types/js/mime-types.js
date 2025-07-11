@@ -25,10 +25,10 @@ export default class MimeTypesModulo extends Modulo {
 
 	disconnectedCallback() { }
 
-	cargar(app_config) {
+	cargar(app_config, opciones) {
 		if (this._cargado) return
 
-		super.cargar(app_config)
+		super.cargar(app_config, opciones)
 
 		this.cargarIndexDefecto()
 
@@ -59,7 +59,7 @@ export default class MimeTypesModulo extends Modulo {
 	cargarMimes(){
 
 		this.transicion = true
-		window.App.getFetch(this.ruta() + 'data/mime_types_min.json')
+		fetch(this.ruta() + 'data/mime_types_min.json')
 			.then(res => res.json())
 			.then((json) => {
 				if(json.mime_types) {

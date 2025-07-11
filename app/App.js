@@ -104,6 +104,14 @@ export class App {
 			}
 		}
 
+		this.app_configuracion = document.getElementsByTagName('app-configuracion')[0]
+		this.btn_configuracion = document.getElementById('btn-menu-configuracion')
+		if(this.btn_configuracion && this.app_configuracion){
+			this.btn_configuracion.onclick = (e) => {
+				this.app_configuracion.abrir()
+			}
+		}
+
 		this.conector = new Conector({ ruta_base: '' })
 		this.token = this.almacenaje.obtener("access-token")
 		this.usuario = null
@@ -111,9 +119,6 @@ export class App {
 		if (this.token) {
 			this.conector.agregarCabecera('Authorization', "Bearer " + this.token)
 		}
-
-		this.iniciarUsuario()
-		this.comprobarMensaje()
 
 		window.addEventListener("hashchange", this.navegarHash)
 		window.addEventListener("beforeunload", this.comprobarCierre)
@@ -124,79 +129,63 @@ export class App {
 			icono: false,
 			menu: false,
 		}
-		setTimeout(this.cargar, 10)
+		//setTimeout(this.cargar, 10)
 
 		App._instancia = this
-	}
-
-	cargar() {
 
 		this.pantalla_carga.mensaje = this._("Cargando configuración") + "..."
 		this.pantalla_carga.porcentaje_carga = 10
 
-		this.getFetch("config/config.json")
-			.then(res => res.json())
-			.then((json) => {
-				if (json && json.app) {
-					this.configuracion = json
-					this.configuracion.defecto = {
-						ui: {...json.ui},
-						app: {...json.app}
-					}
-					this.estado_carga.configuracion = true
+		this.app_configuracion.addEventListener('AppConfiguracionCargada', this.cargar)
+		this.app_configuracion.addEventListener('AppConfiguracionErrorCarga', (e) => {
+			this.mensaje = this._('Error al cargar la configuración.')
+			this.pantalla_carga.mensaje = this._('Error al cargar la configuración.')
+		})
+		this.app_configuracion.cargar()
+	}
 
-					this.configuracion.ui.escala = parseFloat(this.almacenaje.obtener("ui-escala") ?? this.configuracion.ui.escala ?? 1.0)
-					this.configuracion.ui.idioma = this.almacenaje.obtener("ui-idioma") ?? this.configuracion.ui.idioma ?? "es"
-					this.configuracion.ui.tema = this.almacenaje.obtener("ui-tema") ?? this.configuracion.ui.tema ?? "original"
-					this.configuracion.ui.distribucion = this.almacenaje.obtener("ui-distribucion") ?? this.configuracion.ui.distribucion ?? "arriba"
+	cargar() {
 
-					document.documentElement.style.fontSize = Math.ceil(14.0 * this.configuracion.ui.escala) + "px"
-					document.documentElement.setAttribute('data-theme', this.configuracion.ui.tema)
-					document.getElementsByTagName('main')[0].setAttribute('data-distribucion', this.configuracion.ui.distribucion)
+		this.estado_carga.configuracion = true
 
-					for(const app_nombre of this.main.querySelectorAll('[app_nombre]')){
-						app_nombre.innerHTML = this.configuracion.app.nombre
-					}
-					for(const app_version of this.main.querySelectorAll('[app_version]')){
-						app_version.innerHTML = this.configuracion.app.version
-					}
+		this.configuracion = this.app_configuracion.configuracion
 
-					this.contenido_modulo_no_existe.idioma = this.configuracion.ui.idioma
+		for(const app_nombre of this.main.querySelectorAll('[app_nombre]')){
+			app_nombre.innerHTML = this.configuracion.app.nombre
+		}
+		for(const app_version of this.main.querySelectorAll('[app_version]')){
+			app_version.innerHTML = this.configuracion.app.version
+		}
 
-					this.pantalla_carga.titulo = this.configuracion.app.nombre
-					this.pantalla_carga.logo = this.configuracion.app.logos.mediano
-					this.pantalla_carga.porcentaje_carga = 12
+		this.contenido_modulo_no_existe.idioma = this.configuracion.ui.idioma
 
-					for(const app_logo of this.main.querySelectorAll('[app_logo_chico]')){
-						app_logo.onload = (e) => {
-							e.target.style.display = 'block'
-						}
-						app_logo.src = this.configuracion.app.logos.chico
-					}
+		this.pantalla_carga.titulo = this.configuracion.app.nombre
+		this.pantalla_carga.logo = this.configuracion.app.logos.mediano
+		this.pantalla_carga.porcentaje_carga = 12
 
-					for(const app_logo of this.main.querySelectorAll('[app_logo_mediano]')){
-						app_logo.onload = (e) => {
-							e.target.style.display = 'block'
-						}
-						app_logo.src = this.configuracion.app.logos.mediano
-					}
+		for(const app_logo of this.main.querySelectorAll('[app_logo_chico]')){
+			app_logo.onload = (e) => {
+				e.target.style.display = 'block'
+			}
+			app_logo.src = this.configuracion.app.logos.chico
+		}
 
-					for(const app_logo of this.main.querySelectorAll('[app_logo_grande]')){
-						app_logo.onload = (e) => {
-							e.target.style.display = 'block'
-						}
-						app_logo.src = this.configuracion.app.logos.grande
-					}
+		for(const app_logo of this.main.querySelectorAll('[app_logo_mediano]')){
+			app_logo.onload = (e) => {
+				e.target.style.display = 'block'
+			}
+			app_logo.src = this.configuracion.app.logos.mediano
+		}
 
-					this.cargarIconos()
-				}
-			})
-			.catch((er) => {
-				console.error(er)
-			})
-			.finally(() => {
-				this._carga_timeout_id = setTimeout(this.comprobarCarga, 10)
-			})
+		for(const app_logo of this.main.querySelectorAll('[app_logo_grande]')){
+			app_logo.onload = (e) => {
+				e.target.style.display = 'block'
+			}
+			app_logo.src = this.configuracion.app.logos.grande
+		}
+
+		this.cargarIconos()
+		this._carga_timeout_id = setTimeout(this.comprobarCarga, 10)
 	}
 	comprobarCarga() {
 		let cargado = true
@@ -297,7 +286,11 @@ export class App {
 		if (this.modulos_map[modulo_id]) {
 			this.modulo_actual = this.modulos_map[modulo_id]
 			this.contenido.appendChild(this.modulo_actual)
-			this.modulo_actual.cargar(this.configuracion)
+			const opciones = {
+				conector: this.conector,
+				app_ref: this
+			}
+			this.modulo_actual.cargar(this.configuracion, opciones)
 
 			document.title = this.modulo_actual.moduloNombre() + ' - ' + this.configuracion.app.nombre
 

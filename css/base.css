@@ -9,6 +9,7 @@ html {
 	--z-index-panel: 10000;
 	--z-index-transicion: 9000;
 	--z-index-menu: 10100;
+	--z-index-config: 10150;
 	--z-index-popup: 10200;
 	--z-index-mensaje: 10300;
 
@@ -88,6 +89,9 @@ html {
 
 	--fc-listado-par: #000;
 	--fc-listado-impar: #000;
+
+	--bg-lightbox: rgba(0, 0, 0, .5);
+	--br-lightbox: #000;
 }
 
 :root[data-theme="oscuro"] {
@@ -162,6 +166,9 @@ html {
 
 	--fc-listado-par: #fff;
 	--fc-listado-impar: #fff;
+
+	--bg-lightbox: rgba(130, 130, 130, .5);
+	--br-lightbox: #ddd;
 }
 
 * [disabled] {
@@ -549,10 +556,11 @@ audio:not([controls]) {
 	width: fit-content !important;
 	min-width: 50% !important;
 	max-width: 90% !important;
-	box-shadow: 1px 1px 10px 1px #000 !important;
+	box-shadow: 1px 1px 10px 1px var(--br-lightbox) !important;
 	cursor: default !important;
 	position: fixed !important;
-	top: 3% !important;
+	top: 50% !important;
+	transform: translateY(-50%) !important;
 	left: 5% !important;
 	right: 5% !important;
 	margin: auto !important;
@@ -569,7 +577,7 @@ audio:not([controls]) {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(0, 0, 0, .5);
+	background-color: var(--bg-lightbox);
 	cursor: crosshair;
 }
 
@@ -891,6 +899,47 @@ main[data-distribucion="izquierda"] #pie{
     text-align: right;
     padding: 0.5em 2em;
 }
+
+app-configuracion{
+	display: none;
+	padding: 2em;
+	border-radius: 1em;
+}
+.config-contenedor{
+	margin: 0em auto;
+	max-width: 80em;
+}
+.config-panel {
+	min-width: 26em;
+	padding: 1em;
+	background-color: var(--bg-panel);
+	color: var(--fc-panel);
+	border: solid 1px var(--br-panel);
+	border-radius: 3px;
+}
+
+.config-panel h2 {
+	border-bottom: solid 1px var(--br-panel);
+	padding-bottom: 1em;
+	margin: 0;
+	text-align: center;
+}
+
+.config-item {
+	display: grid;
+	grid-template-columns: 10em auto;
+	gap: 1em;
+	margin: 1em;
+	align-items: center;
+	min-height: 3em;
+}
+
+.config-escala-ui {
+	height: 1em;
+	padding: 0;
+	border: none;
+}
+
 
 @media only screen and (max-width: 800px) {
 	main {

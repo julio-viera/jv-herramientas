@@ -19,6 +19,7 @@ export class Modulo extends BaseUI {
 		this.hayCambios = this.hayCambios.bind(this)
 
 		this.configuracion = {}
+		this.opciones = {}
 		this.almacenaje = new AlmacenajeLocal()
 		this.util = Util
 
@@ -58,10 +59,9 @@ export class Modulo extends BaseUI {
 		return this.ruta() + 'html/' + this.configuracion.ui.idioma + '/ayuda.html'
 	}
 
-	cargar(app_config) {
-
+	cargar(app_config, opciones) {
 		this.configuracion = app_config ?? {}
-
+		this.opciones = opciones
 	}
 	descargar() { }
 
@@ -70,7 +70,7 @@ export class Modulo extends BaseUI {
 		if (this._cargado) return
 
 		this.transicion = true
-		window.App.getFetch(this.ruta() + 'html/' + this.configuracion.ui.idioma + '/index.html')
+		this.opciones.conector.get(this.ruta() + 'html/' + this.configuracion.ui.idioma + '/index.html')
 			.then(res => res.text())
 			.then((res) => {
 				this.contenido.innerHTML = res

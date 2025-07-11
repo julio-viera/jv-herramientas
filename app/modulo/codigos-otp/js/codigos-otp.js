@@ -139,10 +139,10 @@ export default class CodigosOtp extends Modulo {
 
 	disconnectedCallback() { }
 
-	cargar(app_config) {
+	cargar(app_config, opciones) {
 		if (this._cargado) return
 
-		super.cargar(app_config)
+		super.cargar(app_config, opciones)
 
 		this.cargarIndexDefecto()
 
