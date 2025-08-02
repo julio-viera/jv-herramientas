@@ -205,26 +205,36 @@ export class AppConfiguracion extends BaseUI {
 
 					let tema_inicio = this._configuracion.ui.tema
 					if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-		    		console.log('modo oscuro')
-						tema_inicio = 'oscuro'
+						tema_inicio = this._configuracion.ui.tema_oscuro
+					}
+					let idioma = this._configuracion.ui.idioma
+					let idioma_seleccionado = this.almacenaje.obtener("ui-idioma")
+					if(!idioma_seleccionado){
+						const tmp = navigator.language.substring(0, 2)
+						if(this._configuracion.app.idiomas){
+							for(const idi in this._configuracion.app.idiomas){
+								if(idi == tmp){
+									idioma = tmp
+									break
+								}
+							}
+						}
 					}
 
 					this._configuracion.ui.escala = parseFloat(this.almacenaje.obtener("ui-escala") ?? this._configuracion.ui.escala ?? 1.0)
-					this._configuracion.ui.idioma = this.almacenaje.obtener("ui-idioma") ?? this._configuracion.ui.idioma ?? "es"
+					this._configuracion.ui.idioma = idioma
 					this._configuracion.ui.tema = this.almacenaje.obtener("ui-tema") ?? tema_inicio
 					this._configuracion.ui.distribucion = this.almacenaje.obtener("ui-distribucion") ?? this._configuracion.ui.distribucion ?? "arriba"
 
 
 					window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-						console.log('cambio modo oscuro tema', event.matches)
 						const seleccionado = this.almacenaje.obtener("ui-tema")
 						if(!seleccionado){
 							if(event.matches){
-								this.almacenaje.guardar('ui-tema', 'oscuro')
-								document.documentElement.setAttribute('data-theme', 'oscuro')
+								document.documentElement.setAttribute('data-theme', this._configuracion.ui.tema_oscuro)
 							}
 							else{
-								document.documentElement.setAttribute('data-theme', 'original')
+								document.documentElement.setAttribute('data-theme', this._configuracion.ui.tema)
 							}
 						}
 					});

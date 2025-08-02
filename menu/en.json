@@ -4,7 +4,7 @@
 
 		{
 			"id": "texto",
-			"nombre": "Texto",
+			"nombre": "Text",
 			"items": [
 				{
 					"id": "separador_lineas",
