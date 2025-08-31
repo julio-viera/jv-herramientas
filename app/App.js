@@ -4,7 +4,7 @@
 import { Util } from "./Util.js"
 import { Conector } from "./Conector.js"
 import { AlmacenajeLocal } from "./AlmacenajeLocal.js"
-import { MenuUI, MenuUIGrupo, MenuUIGrupoItem } from "./componente/menu/js/MenuUI.js"
+import { MenuUI } from "./componente/menu/js/MenuUI.js"
 import { MensajeUI } from "./componente/mensaje/js/MensajeUI.js"
 import { PanelAyuda } from "./componente/panel_ayuda/js/PanelAyuda.js"
 import { PopUp } from "./componente/popup/js/PopUp.js"
@@ -350,7 +350,6 @@ export class App {
 	}
 
 	cargarMenu(idioma) {
-		this.menu.vaciar()
 
 		this.pantalla_carga.mensaje = this._("Cargando menu") + "..."
 		this.pantalla_carga.porcentaje_carga = 70
@@ -359,34 +358,9 @@ export class App {
 			.then(res => res.json())
 			.then((json) => {
 
-				if(json && json.menus){
-					for(const menu of json.menus){
+				if(this.menu.cargarJson(json, this.icono.menu)) this.estado_carga.menu = true
+				else this.mensaje = this._('No se puede cargar:') + " Menu."
 
-						const items = []
-						for(const item of menu.items){
-							items.push(
-								new MenuUIGrupoItem(
-									item.id,
-									item.nombre,
-									item.accion,
-									this.icono.menu[item.id] ?? null
-								),
-							)
-						}
-
-						const grupo = new MenuUIGrupo(
-							menu.id,
-							menu.nombre,
-							items,
-						)
-
-						this.menu.agregarGrupo(grupo)
-						this.menu.construir(this.icono.menu)
-
-					}
-				}
-
-				this.estado_carga.menu = true
 			})
 			.catch((er) => {
 				console.error(er)

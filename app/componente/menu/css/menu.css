@@ -49,8 +49,8 @@ main[data-distribucion="izquierda"] ui-menu {
 
 .menu-grupo {
 	position: relative;
-	width: 100%;
 	max-width: 30em;
+	min-width: 10em;
 }
 
 ui-menu .menu-titulo {
@@ -80,7 +80,7 @@ main[data-distribucion="izquierda"] .menu-titulo {
 
 .menu-items {
 	display: none;
-	overflow: hidden;
+	overflow: visible;
 	z-index: var(--z-index-menu);
 	padding: 0;
 }
@@ -97,7 +97,7 @@ ui-menu .menu-items.activo {
 main[data-distribucion="arriba"] .menu-items {
 	position: absolute;
 	left: 0px;
-	top: 3em;
+	top: 100%;
 	width: 100%;
 }
 
@@ -116,14 +116,12 @@ main[data-distribucion="arriba"] .menu-items {
 }
 
 .menu-item a {
-	display: flex;
-	padding: 1em 2em;
+	display: block;
+	padding: 1em;
 	color: var(--menu-fc-item);
 	font-weight: bold;
 	cursor: pointer;
 	text-decoration: none;
-    align-items: center;
-    gap: 1em;
 }
 
 .menu-item a:hover {
@@ -140,6 +138,23 @@ main[data-distribucion="arriba"] .menu-items {
 	height: 1.4em;
 	color: var(--menu-fc-item);
 }
+
+.menu-item-cont-accion{
+	display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1em;
+    align-items: center;
+    min-width: 8em;
+}
+
+
+main[data-distribucion="arriba"] .menu-items-subnivel {
+	transform: translateX(calc(100% - 0.2em)) translateY(-3em);
+}
+
+main[data-distribucion="izquierda"] .menu-items-subnivel {
+}
+
 
 @media only screen and (max-width: 800px) {
 	#caja-menu {
@@ -189,4 +204,7 @@ main[data-distribucion="arriba"] .menu-items {
 		font-size: 2em;
 	}
 
+	.menu-items-subnivel {
+		transform: translateX(0) translateY(0) !important;
+	}
 }

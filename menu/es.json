@@ -1,10 +1,10 @@
 {
 
-	"menus": [
+	"grupo": [
 		{
 			"id": "texto",
 			"nombre": "Texto",
-			"items": [
+			"grupo": [
 				{
 					"id": "separador_lineas",
 					"nombre": "Separador en Líneas",
@@ -20,7 +20,7 @@
 		{
 			"id": "web",
 			"nombre": "Web",
-			"items": [
+			"grupo": [
 				{
 					"id": "url-parseador",
 					"nombre": "URL Parseador",
@@ -46,7 +46,7 @@
 		{
 			"id": "convertir",
 			"nombre": "Convertir",
-			"items": [
+			"grupo": [
 				{
 					"id": "base64codificar",
 					"nombre": "Codificar Base 64",
@@ -62,7 +62,7 @@
 		{
 			"id": "imagen-video-sonido",
 			"nombre": "Imagen - Vídeo - Sonido",
-			"items": [
+			"grupo": [
 				{
 					"id": "codigos-qr",
 					"nombre": "Códigos QR",
@@ -78,7 +78,7 @@
 		{
 			"id": "criptografia",
 			"nombre": "Criptografía",
-			"items": [
+			"grupo": [
 				{
 					"id": "claves-bcrypt",
 					"nombre": "Contraseñas Bcrypt",
@@ -86,7 +86,6 @@
 				}
 			]
 		}
-
 	]
 
 }

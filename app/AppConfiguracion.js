@@ -220,6 +220,9 @@ export class AppConfiguracion extends BaseUI {
 							}
 						}
 					}
+					else{
+						idioma = idioma_seleccionado
+					}
 
 					this._configuracion.ui.escala = parseFloat(this.almacenaje.obtener("ui-escala") ?? this._configuracion.ui.escala ?? 1.0)
 					this._configuracion.ui.idioma = idioma

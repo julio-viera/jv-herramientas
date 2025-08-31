@@ -682,6 +682,15 @@ audio:not([controls]) {
 	width: 100%;
 }
 
+.grilla-c2-st{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	align-items: start;
+	justify-content: center;
+	gap: 1em;
+	width: 100%;
+}
+
 .centrado-h{
 	align-items: start;
 	justify-content: center;
@@ -948,7 +957,6 @@ app-configuracion{
 			"contenido"
 			"pie" !important;
 		grid-template-columns: calc(100vw - 1em) !important;
-		//grid-template-rows: 6em auto 4em !important;
 		grid-template-rows: auto 1fr auto !important;
 	}
 

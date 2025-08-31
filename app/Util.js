@@ -63,16 +63,16 @@ export class Util
         return null;
     }
 
-    static ponerCookie(nombre, valor, segundos, ruta = '/')
-    {
-        const fecha = new Date();
-        fecha.setTime(fecha.getTime() + (segundos * 1000));
-        document.cookie = nombre + '=' + encodeURIComponent(valor) + ';expires=' + fecha.toUTCString() + ';path=' + ruta;
-    }
-	static borrarCookie(nombre)
-	{
-		document.cookie = nombre +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-	}
+
+    static ponerCookie(nombre, valor, segundos, ruta = '/', dominio = '') {
+			const fecha = new Date();
+			fecha.setTime(fecha.getTime() + (segundos * 1000));
+			let cstr = nombre + '=' + encodeURIComponent(valor) + ';expires=' + fecha.toUTCString() + ';path=' + ruta + (dominio != '' ? ';domain=' + dominio : '');
+			document.cookie = cstr;
+		}
+		static borrarCookie(nombre, ruta = '/', dominio = '') {
+			document.cookie = nombre + '=; Path=' + ruta + ';domain=' + dominio +'; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+		}
 
     static crearElemento(etiqueta = 'div', atributos = {}, hijos = [])
     {

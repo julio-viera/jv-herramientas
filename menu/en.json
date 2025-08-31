@@ -1,11 +1,11 @@
 {
 
-	"menus": [
+	"grupo": [
 
 		{
 			"id": "texto",
 			"nombre": "Text",
-			"items": [
+			"grupo": [
 				{
 					"id": "separador_lineas",
 					"nombre": "Line Separator",
@@ -21,7 +21,7 @@
 		{
 			"id": "web",
 			"nombre": "Web",
-			"items": [
+			"grupo": [
 				{
 					"id": "url-parseador",
 					"nombre": "URL Parse",
@@ -47,7 +47,7 @@
 		{
 			"id": "codificar",
 			"nombre": "Converter",
-			"items": [
+			"grupo": [
 				{
 					"id": "base64codificar",
 					"nombre": "Base 64 Encode",
@@ -63,7 +63,7 @@
 		{
 			"id": "imagen-video-sonido",
 			"nombre": "Image - Video - Sound",
-			"items": [
+			"grupo": [
 				{
 					"id": "codigos-qr",
 					"nombre": "QR Codes",
@@ -79,7 +79,7 @@
 		{
 			"id": "criptografia",
 			"nombre": "Cryptography",
-			"items": [
+			"grupo": [
 				{
 					"id": "claves-bcrypt",
 					"nombre": "Bcrypt Passwords",
