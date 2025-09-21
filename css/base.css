@@ -417,6 +417,11 @@ audio:not([controls]) {
 	accent-color: var(--accent-control);
 	caret-color: var(--caret-control);
 }
+.control[type="range"]{
+	height: 1em;
+	padding: 0;
+	border: none;
+}
 
 .textarea-estandar {
 	padding: 0.5em 1.8em;
@@ -943,11 +948,6 @@ app-configuracion{
 	min-height: 3em;
 }
 
-.config-escala-ui {
-	height: 1em;
-	padding: 0;
-	border: none;
-}
 
 
 @media only screen and (max-width: 800px) {

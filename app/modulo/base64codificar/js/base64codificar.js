@@ -58,6 +58,7 @@ export default class Base64Codificar extends Modulo {
 		this.codificar_mime_detectado = this.querySelector('[modulo-elemento="codificar-mime-detectado"]')
 		this.codificar_imp_archivo = this.querySelector('[modulo-elemento="codificar-imp-archivo"]')
 
+		this.codificar_entrada.onchange = this.codificar
 		this.codificar_btn_procesar.onclick = this.codificar
 		this.codificar_imp_archivo.onchange = this.codificarArchivo
 		this.codificar_btn_entrada_pegar.onclick = this.pegarEntrada
@@ -112,7 +113,7 @@ export default class Base64Codificar extends Modulo {
   pegarEntrada(e){
   	navigator.clipboard.readText()
     .then((datos) => {
-    	this.mensaje = this._('Pegado')
+    	//this.mensaje = this._('Pegado');
      	this.codificar_entrada.value = datos
     })
     .catch(er => {
@@ -127,7 +128,7 @@ export default class Base64Codificar extends Modulo {
 
   	navigator.clipboard.writeText(this.codificar_entrada.value)
    	.then(() => {
-   		this.mensaje = this._('Copiado')
+   		//this.mensaje = this._('Copiado');
     })
     .catch(er => {
   		console.error(er)
@@ -148,7 +149,7 @@ export default class Base64Codificar extends Modulo {
 
    	navigator.clipboard.writeText(this.codificar_salida.value)
     .then(() => {
-    	this.mensaje = this._('Copiado')
+    	//this.mensaje = this._('Copiado');
     })
     .catch(er => {
    		console.error(er)

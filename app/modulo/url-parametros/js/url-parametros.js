@@ -101,7 +101,7 @@ export default class URLParametros extends Modulo {
 	pegarEncoEntrada(e){
   	navigator.clipboard.readText()
     .then((datos) => {
-    	this.mensaje = this._('Pegado')
+    	//this.mensaje = this._('Pegado');
      	this.encode_entrada.value = datos
       this.encode_entrada.dispatchEvent(new Event('change'))
     })
@@ -117,7 +117,7 @@ export default class URLParametros extends Modulo {
 
   	navigator.clipboard.writeText(this.encode_entrada.value)
    	.then(() => {
-   		this.mensaje = this._('Copiado')
+   		//this.mensaje = this._('Copiado');
     })
     .catch(er => {
   		console.error(er)
@@ -138,7 +138,7 @@ export default class URLParametros extends Modulo {
 
   	navigator.clipboard.writeText(this.encode_salida.value)
    	.then(() => {
-   		this.mensaje = this._('Copiado')
+   		//this.mensaje = this._('Copiado');
     })
     .catch(er => {
   		console.error(er)
@@ -150,7 +150,7 @@ export default class URLParametros extends Modulo {
   pegarDecoEntrada(e){
    	navigator.clipboard.readText()
      	.then((datos) => {
-     	this.mensaje = this._('Pegado')
+     	//this.mensaje = this._('Pegado');
       	this.decode_entrada.value = datos
        	this.decode_entrada.dispatchEvent(new Event('change'))
       })
@@ -165,7 +165,7 @@ export default class URLParametros extends Modulo {
 
    	navigator.clipboard.writeText(this.decode_entrada.value)
     	.then(() => {
-    		this.mensaje = this._('Copiado')
+    		//this.mensaje = this._('Copiado');
      	})
      	.catch(er => {
     		console.error(er)
@@ -185,7 +185,7 @@ export default class URLParametros extends Modulo {
 
    	navigator.clipboard.writeText(this.decode_salida.value)
     	.then(() => {
-    		this.mensaje = this._('Copiado')
+    		//this.mensaje = this._('Copiado');
      	})
      	.catch(er => {
     		console.error(er)

@@ -59,6 +59,7 @@ export default class Base64Decodificar extends Modulo {
 		this.decodificar_panel_contenedor_vista = this.querySelector('[modulo-elemento="decodificar-panel-contenedor-vista"]')
 		this.decodificar_mime_detectado = this.querySelector('[modulo-elemento="decodificar-mime-detectado"]')
 
+		this.decodificar_entrada.onchange = this.decodificar
 		this.decodificar_btn_procesar.onclick = this.decodificar
 		this.decodificar_btn_entrada_pegar.onclick = this.pegarEntrada
 		this.decodificar_btn_entrada_copiar.onclick = this.copiarEntrada
@@ -147,7 +148,7 @@ export default class Base64Decodificar extends Modulo {
   pegarEntrada(e){
   	navigator.clipboard.readText()
     .then((datos) => {
-    	this.mensaje = this._('Pegado')
+    	//this.mensaje = this._('Pegado');
      	this.decodificar_entrada.value = datos
     })
     .catch(er => {
@@ -162,7 +163,7 @@ export default class Base64Decodificar extends Modulo {
 
   	navigator.clipboard.writeText(this.decodificar_entrada.value)
    	.then(() => {
-   		this.mensaje = this._('Copiado')
+   		//this.mensaje = this._('Copiado');
     })
     .catch(er => {
   		console.error(er)
@@ -181,7 +182,7 @@ export default class Base64Decodificar extends Modulo {
 
   	navigator.clipboard.writeText(this.decodificar_salida.value)
    	.then(() => {
-   		this.mensaje = this._('Copiado')
+   		//this.mensaje = this._('Copiado');
     })
     .catch(er => {
   		console.error(er)

@@ -96,7 +96,7 @@ export default class JwtModulo extends Modulo {
 	pegar(nodo){
   	navigator.clipboard.readText()
     .then((datos) => {
-    	this.mensaje = this._('Pegado')
+    	//this.mensaje = this._('Pegado');
      	nodo.value = datos
       nodo.dispatchEvent(new Event('change'))
     })
@@ -112,7 +112,7 @@ export default class JwtModulo extends Modulo {
 
   	navigator.clipboard.writeText(nodo.value)
    	.then(() => {
-   		this.mensaje = this._('Copiado')
+   		//this.mensaje = this._('Copiado');
     })
     .catch(er => {
   		console.error(er)

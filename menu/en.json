@@ -15,6 +15,11 @@
 					"id": "unir_lineas",
 					"nombre": "Join Lines",
 					"accion": "#unir-lineas"
+				},
+				{
+					"id": "json-parseo",
+					"nombre": "JSON Parser",
+					"accion": "#json-parseo"
 				}
 			]
 		},

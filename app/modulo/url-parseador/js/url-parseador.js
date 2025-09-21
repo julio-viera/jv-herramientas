@@ -99,7 +99,7 @@ export default class URLParseador extends Modulo {
 	pegarEntrada(e){
   	navigator.clipboard.readText()
     .then((datos) => {
-    	this.mensaje = this._('Pegado')
+    	//this.mensaje = this._('Pegado');
      	this.url_entrada.value = datos
       this.url_entrada.dispatchEvent(new Event('change'))
     })
@@ -115,7 +115,7 @@ export default class URLParseador extends Modulo {
 
   	navigator.clipboard.writeText(this.url_entrada.value)
    	.then(() => {
-   		this.mensaje = this._('Copiado')
+   		//this.mensaje = this._('Copiado');
     })
     .catch(er => {
   		console.error(er)

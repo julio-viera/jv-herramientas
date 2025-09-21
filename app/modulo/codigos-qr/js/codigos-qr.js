@@ -71,7 +71,7 @@ export default class CodigosQR extends Modulo {
 	pegarEntrada(e){
   	navigator.clipboard.readText()
     .then((datos) => {
-    	this.mensaje = this._('Pegado')
+    	//this.mensaje = this._('Pegado');
      	this.entrada.value = datos
       this.entrada.dispatchEvent(new Event('change'))
     })

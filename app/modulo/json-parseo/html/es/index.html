@@ -1,0 +1,49 @@
+
+<div class="modulo-componente-contenido-contenedor-1">
+	<h1 class="ui-titulo">Parseo JSON</h1>
+
+	<div class="descripcion">
+		Parsea un texto con un JSON y la formatea para que sea más fácil de leer por humanos.
+	</div>
+</div>
+
+<div class="modulo-componente-contenido-contenedor-2">
+
+	<div class="flex-h centrado-h">
+		<div class="panel">
+			<div class="flex-h">
+				<div class="mr-1-0">
+					<b>Indentación </b>
+					(<span modulo-elemento="salida-indentacion-cantidad">1</span>) espacios:
+				</div>
+				<input type="range" min="1" max="10" value="1" modulo-elemento="salida-indentacion" class="control" />
+				<div class="mr-1-0"><b>Indentar con tabuladores:</b></div>
+				<input type="checkbox" modulo-elemento="salida-indentacion-tabuladores" />
+			</div>
+	    </div>
+	</div>
+
+	<div class="flex-h centrado-h">
+
+		<div class="panel">
+			<div class="flex-h">
+				<div class="mr-1-0"><b>Entrada con el JSON:</b></div>
+				<button modulo-elemento="btn-entrada-pegar" class="btn">Pegar</button>
+				<button modulo-elemento="btn-entrada-copiar" class="btn">Copiar</button>
+				<button modulo-elemento="btn-entrada-limpiar" class="btn">Limpiar</button>
+			</div>
+	        <textarea modulo-elemento="entrada" class="control textarea-largo-v"></textarea>
+	    </div>
+
+	    <div class="panel">
+			<div class="flex-h">
+				<div class="mr-1-0"><b>Salida Parseada:</b></div>
+				<button modulo-elemento="btn-salida-copiar" class="btn">Copiar</button>
+				<button modulo-elemento="btn-salida-limpiar" class="btn">Limpiar</button>
+			</div>
+	        <textarea modulo-elemento="salida" class="control textarea-largo-v"></textarea>
+	    </div>
+
+	</div>
+
+</div>

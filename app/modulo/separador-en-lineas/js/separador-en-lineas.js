@@ -184,7 +184,7 @@ export default class SeparadorEnLineas extends Modulo {
 	pegarEntrada(e){
   	navigator.clipboard.readText()
     .then((datos) => {
-    	this.mensaje = this._('Pegado')
+    	//this.mensaje = this._('Pegado');
      	this.entrada.value = datos
     })
     .catch(er => {
@@ -206,7 +206,7 @@ export default class SeparadorEnLineas extends Modulo {
 
    	navigator.clipboard.writeText(this.salida.value)
     .then(() => {
-    	this.mensaje = this._('Copiado')
+    	//this.mensaje = this._('Copiado');
     })
     .catch(er => {
    		console.error(er)

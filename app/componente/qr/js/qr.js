@@ -163,7 +163,7 @@ export class QR extends Componente {
 
    	navigator.clipboard.writeText(data)
     .then(() => {
-    	this.mensaje = this._('Copiado')
+    	//this.mensaje = this._('Copiado');
     })
     .catch(er => {
    		console.error(er)
@@ -177,7 +177,7 @@ export class QR extends Componente {
 
     navigator.clipboard.writeText(this._config.datos)
     .then(() => {
-     	this.mensaje = this._('Copiado')
+     	//this.mensaje = this._('Copiado');
     })
     .catch(er => {
     	console.error(er)
