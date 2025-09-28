@@ -27,6 +27,8 @@
         "app/componente/qr/css/qr.css",
         "app/componente/qr/js/QRCode.js",
         "app/componente/qr/js/qr.js",
+        "app/libs/qr-scanner/qr-scanner-worker.min.js",
+        "app/libs/qr-scanner/qr-scanner.min.js",
         "app/modulo/Modulo.js",
         "app/modulo/base64codificar/css/modulo.css",
         "app/modulo/base64codificar/html/en/index.html",

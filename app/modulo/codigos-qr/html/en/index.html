@@ -20,3 +20,38 @@
     </div>
 
 </div>
+
+<div class="modulo-componente-contenido-contenedor-1">
+	<h1 class="ui-titulo">QR Code Scanner</h1>
+
+	<div class="descripcion">QR Code Scanner from camera or image file.</div>
+</div>
+
+<div class="modulo-componente-contenido-contenedor-1">
+
+    <div class="panel-ex">
+    	<div class="flex-v">
+    		<div class="mr-1-0"><b>Scan from camera</b></div>
+		    <div class="flex-h">
+				<select modulo-elemento="qr-listado-camaras" class="control"></select>
+				<button modulo-elemento="qr-iniciar-camara" class="btn">Start</button>
+				<button modulo-elemento="qr-parar-camara" class="btn">Stop</button>
+		    </div>
+			<video modulo-elemento="qr-video" class="control" style="width: 500px;"></video>
+		</div>
+
+	   	<div class="flex-v">
+			<div class="mr-1-0"><b>Scan from image</b></div>
+			<input type="file" accept="image/*" modulo-elemento="qr-archivo" class="control" />
+			<img modulo-elemento="qr-imagen-vista" class="imagen imagen-h" />
+	   	</div>
+	   	<div class="">
+			<div class="flex-h">
+				<div class="mr-1-0"><b>QR Data</b></div>
+    			<button modulo-elemento="btn-lectura-copiar" class="btn">Copy</button>
+		   	</div>
+	    	<textarea modulo-elemento="qr-lectura" class="control textarea-largo-v"></textarea>
+	   	</div>
+    </div>
+
+</div>

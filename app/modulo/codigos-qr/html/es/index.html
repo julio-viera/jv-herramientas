@@ -20,3 +20,39 @@
     </div>
 
 </div>
+
+
+<div class="modulo-componente-contenido-contenedor-1">
+	<h1 class="ui-titulo">Escanear Codigo QR</h1>
+
+	<div class="descripcion">Escanea un códigos QR de la cámara o de un archivo de imagen y extrae la información.</div>
+</div>
+
+<div class="modulo-componente-contenido-contenedor-1">
+
+    <div class="panel-ex">
+    	<div class="flex-v">
+    		<div class="mr-1-0"><b>Escanear de Camara</b></div>
+		    <div class="flex-h">
+				<select modulo-elemento="qr-listado-camaras" class="control"></select>
+				<button modulo-elemento="qr-iniciar-camara" class="btn">Iniciar</button>
+				<button modulo-elemento="qr-parar-camara" class="btn">Parar</button>
+		    </div>
+			<video modulo-elemento="qr-video" class="control" style="width: 500px;"></video>
+		</div>
+
+	   	<div class="flex-v">
+			<div class="mr-1-0"><b>Escanear de Imagen</b></div>
+			<input type="file" accept="image/*" modulo-elemento="qr-archivo" class="control" />
+			<img modulo-elemento="qr-imagen-vista" class="imagen imagen-h" />
+	   	</div>
+	   	<div class="">
+			<div class="flex-h">
+				<div class="mr-1-0"><b>Datos en el QR</b></div>
+    			<button modulo-elemento="btn-lectura-copiar" class="btn">Copiar</button>
+		   	</div>
+	    	<textarea modulo-elemento="qr-lectura" class="control textarea-largo-v"></textarea>
+	   	</div>
+    </div>
+
+</div>
