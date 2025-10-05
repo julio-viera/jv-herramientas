@@ -1,32 +1,36 @@
 
-<div class="modulo-componente-contenido-contenedor-1">
+<div class="flex-v mr-1-cent w-max-60em">
 	<h1 class="ui-titulo">Camera</h1>
 
 	<div class="descripcion">Easy access to cameras. Allows you to take screenshots and make video and audio recordings.</div>
 </div>
 
-<div class="modulo-componente-contenido-contenedor-2">
+<div class="flex-v mr-1-cent w-max-60em">
 
-    <div class="panel-ex">
+    <div class="panel">
      	<div class="flex-h mr-1-0">
       		<button modulo-elemento="btn-iniciar-camara" class="btn">Start Camera</button>
       		<button modulo-elemento="btn-detener-camara" class="btn">Stop Camera</button>
      	</div>
-       	<div class="flex-h mr-1-0">
-        	<label>Cameras:</label>
-        	<select modulo-elemento="listado-camaras" class="control"></select>
-         	<label>Audio:</label>
-        	<select modulo-elemento="listado-microfonos" class="control"></select>
+       	<div class="flex-v mr-1-0">
+       		<div class="flex-h flex-h-cent-v">
+        		<label>Cameras:</label>
+        		<select modulo-elemento="listado-camaras" class="control"></select>
+       		</div>
+        	<div class="flex-h flex-h-cent-v">
+         		<label>Audio:</label>
+          		<select modulo-elemento="listado-microfonos" class="control"></select>
+        	</div>
      	</div>
     </div>
 
-    <div class="panel-ex">
+    <div class="panel">
     	<div class="flex-v">
         	<video class="control" autoplay muted controls modulo-elemento="video-camara" />
     	</div>
     </div>
 
-    <div class="panel-ex">
+    <div class="panel">
     	<div class="flex-h">
      		<div class="flex-v">
        			<div class="flex-h mr-0-1">

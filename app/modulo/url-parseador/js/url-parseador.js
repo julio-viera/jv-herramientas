@@ -62,7 +62,7 @@ export default class URLParseador extends Modulo {
 	procesar(){
 
 		const entrada = this.url_entrada.value.trim()
-		console.log(entrada)
+
 		if(!entrada){
 			return
 		}
@@ -84,15 +84,29 @@ export default class URLParseador extends Modulo {
 		this.url_ruta.innerHTML = this._url.pathname
 		this.url_parametros.innerHTML = this._url.search
 
+		let iter = 0;
+		const listado = this.crear('div', {class: 'listado-v'})
+
+		const fila = this.crear('div', {class: 'grilla-c3 pd-1'}, [
+			this.crear('div', {}, this._('Nombre del Parámetro')),
+			this.crear('div', {}, this._('Valor del Parámetro'))
+		])
+
+		listado.appendChild(fila)
+
 		this.url_parametros_desplegados.innerHTML = ''
 		this._url.searchParams.forEach((valor, nombre) => {
-			const nodo = this.crear('div', {class: 'grilla-c2'}, [
+			let clase = iter++ % 2 == 0 ? 'par' : 'impar';
+			const fila = this.crear('div', {class: 'grilla-c3 pd-1 ' + clase}, [
 				this.crear('div', {}, nombre),
 				this.crear('div', {}, decodeURIComponent(valor))
 			])
 
-			this.url_parametros_desplegados.appendChild(nodo)
+			listado.appendChild(fila)
 		})
+
+		if(iter > 0) this.url_parametros_desplegados.appendChild(listado)
+
 	}
 
 

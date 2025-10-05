@@ -1,13 +1,13 @@
 
-<div class="modulo-componente-contenido-contenedor-1">
+<div class="flex-v mr-1-cent w-max-60em">
 	<h1 class="ui-titulo">Generador de Codigos QR</h1>
 
 	<div class="descripcion">Genera códigos QR con los datos de entrada. Solo pege en la Entrada el texto a codificar.</div>
 </div>
 
-<div class="modulo-componente-contenido-contenedor-1">
+<div class="flex-v mr-1-cent w-max-60em">
 
-    <div class="panel-ex">
+    <div class="panel">
 	   	<div class="flex-h">
 			<div class="mr-1-0"><b>Entrada:</b></div>
     		<button modulo-elemento="btn-entrada-pegar" class="btn">Pegar</button>
@@ -15,30 +15,32 @@
         <textarea modulo-elemento="entrada" class="control textarea-estandar"></textarea>
     </div>
 
-    <div class="panel-ex">
+    <div class="panel">
 	    <div modulo-elemento="salida-qr" class=""></div>
     </div>
 
 </div>
 
 
-<div class="modulo-componente-contenido-contenedor-1">
+<div class="flex-v mr-1-cent w-max-60em">
 	<h1 class="ui-titulo">Escanear Codigo QR</h1>
 
 	<div class="descripcion">Escanea un códigos QR de la cámara o de un archivo de imagen y extrae la información.</div>
 </div>
 
-<div class="modulo-componente-contenido-contenedor-1">
+<div class="flex-v mr-1-cent w-max-60em">
 
-    <div class="panel-ex">
-    	<div class="flex-v">
+    <div class="panel">
+    	<div class="">
     		<div class="mr-1-0"><b>Escanear de Camara</b></div>
 		    <div class="flex-h">
 				<select modulo-elemento="qr-listado-camaras" class="control"></select>
 				<button modulo-elemento="qr-iniciar-camara" class="btn">Iniciar</button>
 				<button modulo-elemento="qr-parar-camara" class="btn">Parar</button>
 		    </div>
-			<video modulo-elemento="qr-video" class="control" style="width: 500px;"></video>
+			<div class="mr-1-0">
+				<video modulo-elemento="qr-video" class="control"></video>
+			</div>
 		</div>
 
 	   	<div class="flex-v">
