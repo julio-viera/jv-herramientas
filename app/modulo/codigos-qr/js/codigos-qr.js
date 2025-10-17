@@ -15,14 +15,12 @@ export default class CodigosQR extends Modulo {
 		this.tomaUI = this.tomaUI.bind(this)
 		this.procesar = this.procesar.bind(this)
 		this.crearQR = this.crearQR.bind(this)
-		this.pegarEntrada = this.pegarEntrada.bind(this)
 
 		this.lecturaQR = this.lecturaQR.bind(this)
 		this.iniciarCamara = this.iniciarCamara.bind(this)
 		this.detenerCamara = this.detenerCamara.bind(this)
 		this.escanearImagen = this.escanearImagen.bind(this)
 		this.seleccionarCamara = this.seleccionarCamara.bind(this)
-		this.copiar = this.copiar.bind(this)
 
 		this._cargado = false
 	}
@@ -46,11 +44,8 @@ export default class CodigosQR extends Modulo {
 	tomaUI(){
 
 		this.entrada = this.querySelector('[modulo-elemento="entrada"]')
-		this.btn_entrada_pegar = this.querySelector('[modulo-elemento="btn-entrada-pegar"]')
 		this.salida_qr = this.querySelector('[modulo-elemento="salida-qr"]')
-
-		this.btn_entrada_pegar.onclick = this.pegarEntrada
-		this.entrada.onchange = this.procesar
+		this.entrada.addEventListener('AreaTextoCambio', this.procesar)
 
 		this.crearQR('Lorem ipsum')
 
@@ -61,7 +56,6 @@ export default class CodigosQR extends Modulo {
 		this.qr_archivo = this.querySelector('[modulo-elemento="qr-archivo"]')
 		this.qr_lectura = this.querySelector('[modulo-elemento="qr-lectura"]')
 		this.qr_imagen_vista = this.querySelector('[modulo-elemento="qr-imagen-vista"]')
-		this.qr_btn_lectura_copiar = this.querySelector('[modulo-elemento="btn-lectura-copiar"]')
 
   	this.qr_scanner = new QrScanner(
     								this.qr_video,
@@ -87,20 +81,19 @@ export default class CodigosQR extends Modulo {
 		this.qr_listado_camaras.onchange = this.seleccionarCamara
 
 	 	this.qr_archivo.onchange = () => {
-    	this.qr_lectura.innerHTML = ''
+    	this.qr_lectura.texto = ''
     	this.escanearImagen()
     }
 
 		this.qr_iniciar_camara.onclick = this.iniciarCamara
 		this.qr_parar_camara.onclick = this.detenerCamara
-		this.qr_btn_lectura_copiar.onclick = () => {this.copiar(this.qr_lectura)}
 
 		this.util.ocultar(this.qr_parar_camara)
 	}
 
 	procesar(){
 
-		const datos = this.entrada.value.trim()
+		const datos = this.entrada.texto.trim()
 
 		if(datos == '') return
 
@@ -119,22 +112,8 @@ export default class CodigosQR extends Modulo {
 		this.salida_qr.appendChild(this._elqr)
 	}
 
-	pegarEntrada(e){
-  	navigator.clipboard.readText()
-    .then((datos) => {
-    	//this.mensaje = this._('Pegado');
-     	this.entrada.value = datos
-      this.entrada.dispatchEvent(new Event('change'))
-    })
-    .catch(er => {
-   		console.error(er)
-      this.mensaje = this._('Imposible realizar la acción.')
-    })
-
-  }
-
   lecturaQR(data) {
-		this.qr_lectura.value = data
+		this.qr_lectura.texto = data
   }
 
   iniciarCamara(){
@@ -171,20 +150,6 @@ export default class CodigosQR extends Modulo {
    	if(!this.qr_listado_camaras.value) return
 
 	    QrScanner.setCamera(this.qr_listado_camaras.value)
-  }
-
-  copiar(nodo){
- 		if(!nodo.value) return
-
-  	navigator.clipboard.writeText(nodo.value)
-   	.then(() => {
-   		//this.mensaje = this._('Copiado');
-    })
-    .catch(er => {
-  		console.error(er)
-     	this.mensaje = this._('Imposible realizar la acción.')
-    })
-
   }
 
 	descargar() {

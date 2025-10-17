@@ -10,6 +10,8 @@ import { PanelAyuda } from "./componente/panel_ayuda/js/PanelAyuda.js"
 import { PopUp } from "./componente/popup/js/PopUp.js"
 import { PantallaCarga } from "./componente/pantalla_carga/js/PantallaCarga.js"
 import { PantallaSinContenido } from "./componente/pantalla_sin_contenido/js/PantallaSinContenido.js"
+import { AreaTexto } from "./componente/areatexto/js/AreaTexto.js"
+import { VisorDoc } from "./componente/visor_doc/js/VisorDoc.js"
 
 window.addEventListener("load", () => {
 	window.App = new App()
@@ -313,6 +315,7 @@ export class App {
 			.then(res => res.json())
 			.then((res) => {
 				if (res.ui) {
+					window.ui_iconos = res
 					this.icono = res
 					this.estado_carga.icono = true
 
@@ -465,6 +468,9 @@ export class App {
 
 	_(t) {
 		return window.ui_idioma && window.ui_idioma[t] ? window.ui_idioma[t] : t
+	}
+	_iconos(t) {
+		return window.ui_iconos && window.ui_iconos[t] ? window.ui_iconos[t] : null
 	}
 
 	async getFetch(ruta) {

@@ -12,14 +12,6 @@ export default class SeparadorEnLineas extends Modulo {
 		this.tomaUI = this.tomaUI.bind(this)
 		this.procesar = this.procesar.bind(this);
 
-		this.pegarEntrada = this.pegarEntrada.bind(this)
-		this.limpiarEntrada = this.limpiarEntrada.bind(this)
-		this.copiarSalida = this.copiarSalida.bind(this)
-		this.limpiarSalida = this.limpiarSalida.bind(this)
-		this.copiarFiltradas = this.copiarFiltradas.bind(this)
-		this.limpiarFiltradas = this.limpiarFiltradas.bind(this)
-
-
 		this.expresiones = [
 			{'codigo': 'letras', 'nombre': 'Letras', 'regexp': '^[a-zA-ZñáéíóúÑÁÉÍÓÚüÜ]+$'},
 			{'codigo': 'numeros', 'nombre': 'Números', 'regexp': '^\\d+$'},
@@ -58,30 +50,10 @@ export default class SeparadorEnLineas extends Modulo {
 		this.btn_procesar = this.querySelector('[modulo-elemento="btn-procesar"]')
 		this.cantidad = this.querySelector('[modulo-elemento="cantidad"]')
 		this.salida = this.querySelector('[modulo-elemento="salida"]')
-		this.link_descarga = this.querySelector('[modulo-elemento="link-descarga"]')
 		this.cantidad_no_validos = this.querySelector('[modulo-elemento="cantidad_no_validos"]')
 		this.salida_no_validos = this.querySelector('[modulo-elemento="salida_no_validos"]')
-		this.link_descarga_filtrados = this.querySelector('[modulo-elemento="link-descarga-filtrados"]')
-
-		this.btn_entrada_pegar = this.querySelector('[modulo-elemento="btn-entrada-pegar"]')
-		this.btn_entrada_limpiar = this.querySelector('[modulo-elemento="btn-entrada-limpiar"]')
-
-		this.btn_salida_copiar = this.querySelector('[modulo-elemento="btn-salida-copiar"]')
-		this.btn_salida_limpiar = this.querySelector('[modulo-elemento="btn-salida-limpiar"]')
-
-		this.btn_filtradas_copiar = this.querySelector('[modulo-elemento="btn-filtradas-copiar"]')
-		this.btn_filtradas_limpiar = this.querySelector('[modulo-elemento="btn-filtradas-limpiar"]')
 
 		this.btn_procesar.onclick = this.procesar
-
-		this.btn_entrada_pegar.onclick = this.pegarEntrada
-		this.btn_entrada_limpiar.onclick = this.limpiarEntrada
-
-		this.btn_salida_copiar.onclick = this.copiarSalida
-		this.btn_salida_limpiar.onclick = this.limpiarSalida
-
-		this.btn_filtradas_copiar.onclick = this.copiarFiltradas
-		this.btn_filtradas_limpiar.onclick = this.limpiarFiltradas
 
 		this.expresiones_regulares.innerHTML = '<option value="">-- ' + this._('Filtros de ejemplo.') + ' --</option>'
 		for(const exp of this.expresiones){
@@ -107,15 +79,8 @@ export default class SeparadorEnLineas extends Modulo {
 		this.mensaje = ''
     this.cantidad.innerHTML = ''
     this.cantidad_no_validos.innerHTML = ''
-    this.salida.value = ''
-    this.salida_no_validos.value = ''
-
-
-    this.link_descarga.style.display = 'none'
-    this.link_descarga.setAttribute('href', '')
-
-    this.link_descarga_filtrados.style.display = 'none'
-    this.link_descarga_filtrados.setAttribute('href', '')
+    this.salida.texto = ''
+    this.salida_no_validos.texto = ''
 
     const separador = this.separador.value.trim()
 
@@ -125,7 +90,7 @@ export default class SeparadorEnLineas extends Modulo {
       return
     }
 
-    const entrada = this.entrada.value.trim()
+    const entrada = this.entrada.texto.trim()
 
     if(!entrada)
     {
@@ -159,83 +124,14 @@ export default class SeparadorEnLineas extends Modulo {
 
     const resultado = items_validos.join(separador_linea)
 
-    this.salida.value = resultado
+    this.salida.texto = resultado
     this.cantidad.innerHTML = this._('Cantidad de elementos:') + items_validos.length
-
-    const blob = new Blob([resultado], { type: 'text/plain;charset=utf-8,' })
-    this.link_descarga.setAttribute('href', URL.createObjectURL(blob))
-    this.link_descarga.setAttribute('download', 'lineas_salida.txt')
-    this.link_descarga.style.display = 'block'
-
 
     const resultado_no_validos = items_no_validos.join(separador_linea)
 
-    this.salida_no_validos.value = resultado_no_validos
+    this.salida_no_validos.texto = resultado_no_validos
     this.cantidad_no_validos.innerHTML = this._('Cantidad de elementos:') + items_no_validos.length
 
-    if(items_no_validos.length > 0){
-	    const blob = new Blob([resultado_no_validos], { type: 'text/plain;charset=utf-8,' })
-	    this.link_descarga_filtrados.setAttribute('href', URL.createObjectURL(blob))
-	    this.link_descarga_filtrados.setAttribute('download', 'lineas_filtradas.txt')
-	    this.link_descarga_filtrados.style.display = 'block'
-    }
-	}
-
-	pegarEntrada(e){
-  	navigator.clipboard.readText()
-    .then((datos) => {
-    	//this.mensaje = this._('Pegado');
-     	this.entrada.value = datos
-    })
-    .catch(er => {
-   		console.error(er)
-      this.mensaje = this._('Imposible realizar la acción.')
-    })
-
-  }
-
-	limpiarEntrada(e) {
-		this.entrada.value = ''
-		this.mensaje = ''
-	}
-
-
-	copiarSalida(e){
-
-  	if(!this.salida.value) return
-
-   	navigator.clipboard.writeText(this.salida.value)
-    .then(() => {
-    	//this.mensaje = this._('Copiado');
-    })
-    .catch(er => {
-   		console.error(er)
-      this.mensaje = this._('Imposible realizar la acción.')
-    })
-  }
-
-	limpiarSalida(e) {
-		this.salida.value = ''
-		this.mensaje = ''
-	}
-
-	copiarFiltradas(e){
-
-  	if(!this.salida_no_validos.value) return
-
-   	navigator.clipboard.writeText(this.salida_no_validos.value)
-    .then(() => {
-    	this.mensaje = this._('Copiado.')
-    })
-    .catch(er => {
-   		console.error(er)
-      this.mensaje = this._('No se pudo copiar.')
-    })
-  }
-
-	limpiarFiltradas(e) {
-		this.salida_no_validos.value = ''
-		this.mensaje = ''
 	}
 
 }

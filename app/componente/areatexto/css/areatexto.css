@@ -1,0 +1,323 @@
+
+:root {
+	--fc-areatexto: #000000;
+	--bg-areatexto: #e1eff3;
+	--br-areatexto: #adc1c7;
+	--rd-areatexto: 0.1em;
+	--pd-areatexto: 0.5em;
+	--gp-areatexto: 0.5em;
+
+	--rd-areatexto-texto: 0.1em;
+	--fc-areatexto-texto: #000000;
+	--bg-areatexto-texto: #fafeff;
+	--br-areatexto-texto: #859ea5;
+
+	--fc-areatexto-linea: #000;
+	--bg-areatexto-linea-par: #fafffa;
+	--bg-areatexto-linea-impar: #f1f1f1;
+
+	--gp-areatexto-botones: 0.3em;
+	--btn-areatexto-tamanio: 3em;
+	--rd-areatexto-botones: 0.3em;
+
+	--fc-areatexto-conteo-lineas-tamanio: 1em;
+	--fc-areatexto-conteo-lineas-columnas: 5;
+	--bg-areatexto-conteo-linea-par: #aedbdf;
+	--bg-areatexto-conteo-linea-impar: #d7f8f9;
+
+	--bg-btn-areatexto: #f0f3f3;
+	--fc-btn-areatexto: #000;
+	--bg-btn-areatexto-activo: #fff;
+	--fc-btn-areatexto-activo: #000;
+	--br-btn-areatexto: #96abc1;
+
+	--fc-areatexto-estad: #353535;
+	--bg-areatexto-estad: inherit;
+	--br-areatexto-estad: #859ea5;
+	--rd-areatexto-estad: 0.1em;
+	--pd-areatexto-estad: 0.3em;
+
+	--areatexto-caret-control: #000; /* cursor */
+	--areatexto-cl-scroll-tamanio: 0.5em;
+	--areatexto-cl-scroll-1: #888;
+	--areatexto-cl-scroll-2: #ddd;
+}
+
+:root[data-theme="oscuro"] {
+	--fc-areatexto: #dddddd;
+	--bg-areatexto: #172327;
+	--br-areatexto: #656565;
+	--rd-areatexto: 0.1em;
+	--pd-areatexto: 0.5em;
+	--gp-areatexto: 0.5em;
+
+	--rd-areatexto-texto: 0.1em;
+	--fc-areatexto-texto: #dddddd;
+	--bg-areatexto-texto: #2f393d;
+	--br-areatexto-texto: #737373;
+
+	--fc-areatexto-linea: #dddddd;
+	--bg-areatexto-linea-par: #2f393d;
+	--bg-areatexto-linea-impar: #454545;
+
+	--gp-areatexto-botones: 0.3em;
+	--btn-areatexto-tamanio: 3em;
+	--rd-areatexto-botones: 0.3em;
+
+	--fc-areatexto-conteo-lineas-tamanio: 1em;
+	--fc-areatexto-conteo-lineas-columnas: 5;
+	--bg-areatexto-conteo-linea-par: #233d47;
+	--bg-areatexto-conteo-linea-impar: #264957;
+
+	--bg-btn-areatexto: #105757;
+	--fc-btn-areatexto: #ddd;
+	--bg-btn-areatexto-activo: #146565;
+	--fc-btn-areatexto-activo: #fff;
+	--br-btn-areatexto: #146565;
+
+	--fc-areatexto-estad: #bdbdbd;
+	--bg-areatexto-estad: inherit;
+	--br-areatexto-estad: #859ea5;
+	--rd-areatexto-estad: 0.1em;
+	--pd-areatexto-estad: 0.3em;
+
+	--areatexto-caret-control: #fff; /* cursor */
+	--areatexto-cl-scroll-tamanio: 0.5em;
+	--areatexto-cl-scroll-1: #222;
+	--areatexto-cl-scroll-2: #444;
+}
+
+
+ui-area-texto{
+	display: flex;
+	flex-direction: column;
+    gap: var(--gp-areatexto);
+	padding: var(--pd-areatexto);
+    background: var(--bg-areatexto);
+    color: var(--fc-areatexto);
+    border: solid 1px var(--br-areatexto);
+    border-radius: var(--rd-areatexto);
+    min-width: 400px;
+    min-height: 400px;
+}
+
+ui-area-texto input[type="range"]{
+	height: 1em;
+	padding: 0;
+	border: none;
+}
+
+ui-area-texto .range-vertical{
+	transform: translateY(50px) rotate(-90deg);
+    transform-origin: center;
+    width: 100px;
+    display: block;
+    align-self: center;
+}
+
+ui-area-texto .areatexto-cont-texto{
+	display: grid;
+    grid-template-columns: calc(var(--btn-areatexto-tamanio) * 1.5) auto;
+    height: 100%;
+    width: 100%;
+}
+
+ui-area-texto .areatexto-cont-area{
+    width: 100%;
+    height: 100%;
+    min-height: 25rem;
+    position: relative;
+    font-family: sans-serif;
+    line-height: 2.0;
+    font-size: 1em;
+    border-radius: var(--rd-areatexto-texto);
+    border: solid 1px var(--br-areatexto-texto);
+}
+
+ui-area-texto .areatexto-fondo-color{
+	position: absolute;
+	top: 0;
+	left: calc(var(--fc-areatexto-conteo-lineas-tamanio) * var(--fc-areatexto-conteo-lineas-columnas));
+	width: calc(100% - calc(var(--fc-areatexto-conteo-lineas-tamanio) * var(--fc-areatexto-conteo-lineas-columnas)));
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	overflow: auto;
+	white-space: pre;
+	z-index: 0;
+	background-color: var(--bg-areatexto-texto);
+    color: var(--fc-areatexto-texto);
+	border-radius: 0;
+    border: none;
+
+	font-family: inherit;
+    line-height: inherit;
+    font-size: inherit;
+}
+
+ui-area-texto .areatexto-texto {
+
+    position: absolute;
+	top: 0;
+	left: calc(var(--fc-areatexto-conteo-lineas-tamanio) * var(--fc-areatexto-conteo-lineas-columnas));
+	width: calc(100% - calc(var(--fc-areatexto-conteo-lineas-tamanio) * var(--fc-areatexto-conteo-lineas-columnas)));
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	overflow: auto;
+	white-space: pre;
+
+	z-index: 1;
+	color: transparent;
+	background: transparent;
+	caret-color: var(--areatexto-caret-control);
+	border: none;
+	outline: none;
+	resize: none;
+	font-family: inherit;
+	line-height: inherit;
+	font-size: inherit;
+}
+ui-area-texto .areatexto-cont-conteo-lineas{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: calc(var(--fc-areatexto-conteo-lineas-tamanio) * var(--fc-areatexto-conteo-lineas-columnas));
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: var(--bg-areatexto-conteo-linea-par);
+	color: var(--fc-areatexto-linea);
+}
+
+ui-area-texto .areatexto-fondo-color-linea{
+	display: inline-block;
+	width: auto;
+    min-width: 100%;
+    border: none;
+}
+
+ui-area-texto .areatexto-fondo-color-linea-par{
+	background-color: var(--bg-areatexto-linea-par);
+}
+ui-area-texto .areatexto-fondo-color-linea-impar{
+	background-color: var(--bg-areatexto-linea-impar);
+}
+
+ui-area-texto .areatexto-fondo-color-numero-linea{
+	display: inline-block;
+    width: 100%;
+    border: none;
+    text-align: center;
+}
+ui-area-texto .areatexto-fondo-color-numero-linea-par{
+	background-color: var(--bg-areatexto-conteo-linea-par);
+}
+ui-area-texto .areatexto-fondo-color-numero-linea-impar{
+	background-color: var(--bg-areatexto-conteo-linea-impar);
+}
+
+
+ui-area-texto .areatexto-cont-botones{
+	display: flex;
+	flex-direction: column;
+	gap: var(--gp-areatexto-botones);
+    padding-top: 1em;
+    z-index: 2;
+    align-items: center;
+}
+
+
+ui-area-texto .areatexto-btn {
+	display: block;
+	padding: calc(var(--btn-areatexto-tamanio) * 0.3);
+	color: var(--fc-btn-areatexto);
+	background-color: var(--bg-btn-areatexto);
+	white-space: nowrap;
+	overflow: hidden;
+	cursor: pointer;
+	text-decoration: none;
+	width: fit-content;
+	min-height: 2em;
+	align-content: center;
+	font-size: 1em;
+	border: solid 1px var(--br-btn-areatexto);
+	border-radius: var(--rd-areatexto-botones);
+}
+
+ui-area-texto .areatexto-btn:hover {
+	color: var(--fc-btn-areatexto-activo);
+	background-color: var(--bg-btn-areatexto-activo);
+	transform: scale(1.1);
+}
+
+ui-area-texto .areatexto-btn:visited:hover {
+	color: var(--fc-btn-areatexto-activo);
+	background-color: var(--bg-btn-areatexto-activo);
+	transform: scale(1.1);
+}
+
+ui-area-texto .areatexto-btn svg{
+	width: calc(var(--btn-areatexto-tamanio) * 0.5);
+    height: calc(var(--btn-areatexto-tamanio) * 0.5);
+    color: var(--fc-btn-areatexto);
+}
+
+
+ui-area-texto .areatexto-area-titulo{
+	font-size: 1.3em;
+	padding: 0.5em 0;
+	color: var(--fc-areatexto);
+	text-align: center;
+}
+ui-area-texto .areatexto-area-descripcion{
+	font-size: 1em;
+	padding: 0.5em 0;
+	color: var(--fc-areatexto);
+}
+
+ui-area-texto .areatexto-estadisticas{
+	background-color: var(--bg-areatexto-estad);
+	color: var(--fc-areatexto-estad);
+	padding: var(--pd-areatexto-estad);
+	border-radius: var(--rd-areatexto-estad);
+	text-align: right;
+}
+ui-area-texto .areatexto-mensaje{
+	color: var(--fc-areatexto);
+}
+
+ui-area-texto *::-webkit-scrollbar {
+	width: var(--areatexto-cl-scroll-tamanio);
+	height: var(--areatexto-cl-scroll-tamanio);
+}
+ui-area-texto *::-webkit-scrollbar-track {
+	background-color: var(--areatexto-cl-scroll-1);
+}
+
+ui-area-texto *::-webkit-scrollbar-thumb {
+	background-color: var(--areatexto-cl-scroll-2);
+	outline: 1px solid #000;
+}
+
+ui-area-texto *::-webkit-scrollbar-corner {
+	background-color: var(--areatexto-cl-scroll-1);
+	outline: 1px solid #000;
+}
+
+ui-area-texto *::-webkit-resizer {
+	background-color: var(--areatexto-cl-scroll-2);
+	outline: 1px solid #000;
+}
+
+
+@media only screen and (max-width: 600px) {
+	:root{
+		--btn-areatexto-tamanio: 1.5em;
+		--fc-areatexto-conteo-lineas-tamanio: 0.9em;
+		--fc-areatexto-conteo-lineas-columnas: 4;
+	}
+}

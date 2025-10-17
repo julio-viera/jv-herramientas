@@ -9,33 +9,45 @@
 
 <div class="flex-v mr-1-cent w-max-60em">
 
-	<div class="flex-h flex-h-cent-h">
+	<div class="panel">
+		<ui-visor-doc style="height: 600px; width: 100%;" modulo-elemento="decodificar-entrada"
+			btn_maximizar="false"
+			btn_copiar="true"
+			btn_pegar="true"
+			btn_limpiar="true"
+			btn_descargar="false"
+			archivo_descargar="archivo"
+			usar_cambiar_tamanio_texto="false"
+			usar_caja_busqueda="false"
 
-		<div class="panel">
-			<div class="flex-h">
-				<div class="mr-1-0"><b>Base 64 Input:</b></div>
-				<button modulo-elemento="decodificar-btn-entrada-pegar" class="btn">Paste</button>
-				<button modulo-elemento="decodificar-btn-entrada-copiar" class="btn">Copy</button>
-				<button modulo-elemento="decodificar-btn-entrada-limpiar" class="btn">Clear</button>
-			</div>
+			area_titulo="Base 64 Input"
+			area_descripcion=""
+			usar_mensajes="true"
+			mostrar_estadisticas="false"
+		></ui-visor-doc>
+		<button modulo-elemento="decodificar-btn-procesar" class="btn">Decode</button>
+    </div>
 
-	        <textarea modulo-elemento="decodificar-entrada" class="control textarea-largo-v"></textarea>
-	        <button modulo-elemento="decodificar-btn-procesar" class="btn">Decode</button>
-	    </div>
+    <div class="panel">
+   		<ui-visor-doc style="height: 600px; width: 100%;" modulo-elemento="decodificar-salida"
+			btn_maximizar="false"
+			btn_copiar="true"
+			btn_pegar="false"
+			btn_limpiar="true"
+			btn_descargar="true"
+			archivo_descargar="archivo"
+			usar_cambiar_tamanio_texto="false"
 
-	    <div class="panel">
-			<div class="flex-h">
-				<div class="mr-1-0"><b>Decoded Output:</b></div>
-				<button modulo-elemento="decodificar-btn-salida-copiar" class="btn">Copy</button>
-				<button modulo-elemento="decodificar-btn-salida-limpiar" class="btn">Clear</button>
-			</div>
+			doc_titulo="Decoded Output"
+			doc_descripcion=""
+			usar_mensajes="false"
+			mostrar_estadisticas="false"
+		></ui-visor-doc>
 
-	        <textarea modulo-elemento="decodificar-salida" class="control textarea-largo-v"></textarea>
-			<br />
-			<div modulo-elemento="decodificar-mime-detectado"></div>
-	    </div>
+		<br />
+		<div modulo-elemento="decodificar-mime-detectado"></div>
+    </div>
 
-	</div>
 
 	<div class="panel centrado-propio-h" modulo-elemento="decodificar-panel-contenedor-vista">
 		<div modulo-elemento="decodificar-contenedor-vista"></div>

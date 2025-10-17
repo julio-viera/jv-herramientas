@@ -10,13 +10,22 @@
 
 <div class="flex-v mr-1-cent w-max-60em">
 
-    <div class="panel">
-  		<div class="flex-h">
-			<div class="mr-1-0"><b>Entrada:</b></div>
-			<button modulo-elemento="btn-entrada-pegar" class="btn">Pegar</button>
-			<button modulo-elemento="btn-entrada-limpiar" class="btn">Limpiar</button>
-		</div>
-        <textarea modulo-elemento="entrada" class="control textarea-estandar"></textarea>
+	<div class="panel">
+		<ui-area-texto style="height: 500px; width: 100%;" modulo-elemento="entrada"
+			btn_maximizar="true"
+			btn_copiar="true"
+			btn_pegar="true"
+			btn_limpiar="true"
+			btn_descargar="true"
+			archivo_descargar="archivo"
+			usar_cambiar_tamanio_texto="true"
+			usar_caja_busqueda="false"
+
+			area_titulo="Entrada"
+			area_descripcion=""
+			usar_mensajes="true"
+			mostrar_estadisticas="true"
+		></ui-area-texto>
     </div>
 
     <div class="panel">
@@ -37,30 +46,46 @@
         </div>
     </div>
 
-    <div class="panel">
-  		<div class="flex-h">
-			<div class="mr-1-0"><b>Salida:</b></div>
-			<button modulo-elemento="btn-salida-copiar" class="btn">Copiar</button>
-			<button modulo-elemento="btn-salida-limpiar" class="btn">Limpiar</button>
-		</div>
 
-    	<div class="mr-1-0"><span modulo-elemento="cantidad"></span> </div>
-        <textarea modulo-elemento="salida" class="control textarea-estandar"></textarea>
-        <br />
-        <a href="" modulo-elemento="link-descarga" class="btn">Descargar Líneas</a>
+    <div class="panel">
+   		<ui-visor-doc style="height: 500px; width: 100%;" modulo-elemento="salida"
+			btn_maximizar="false"
+			btn_copiar="true"
+			btn_pegar="false"
+			btn_limpiar="true"
+			btn_descargar="true"
+			archivo_descargar="archivo"
+			usar_cambiar_tamanio_texto="false"
+
+			doc_titulo="Salida"
+			doc_descripcion=""
+			usar_mensajes="false"
+			mostrar_estadisticas="false"
+		></ui-visor-doc>
+
+		<br />
+		<div class="mr-1-0"><span modulo-elemento="cantidad"></span> </div>
     </div>
 
-    <div class="panel">
-  		<div class="flex-h">
-			<div class="mr-1-0"><b>Líneas filtradas:</b></div>
-			<button modulo-elemento="btn-filtradas-copiar" class="btn">Copiar</button>
-			<button modulo-elemento="btn-filtradas-limpiar" class="btn">Limpiar</button>
-		</div>
 
-        <div class="mr-1-0"><span modulo-elemento="cantidad_no_validos"></span></div>
-        <textarea modulo-elemento="salida_no_validos" class="control textarea-estandar"></textarea>
-        <br />
-        <a href="" modulo-elemento="link-descarga-filtrados" class="btn">Descargar Líneas Filtradas</a>
+    <div class="panel">
+   		<ui-visor-doc style="height: 500px; width: 100%;" modulo-elemento="salida_no_validos"
+			btn_maximizar="false"
+			btn_copiar="true"
+			btn_pegar="false"
+			btn_limpiar="true"
+			btn_descargar="true"
+			archivo_descargar="archivo"
+			usar_cambiar_tamanio_texto="false"
+
+			doc_titulo="Líneas filtradas"
+			doc_descripcion=""
+			usar_mensajes="false"
+			mostrar_estadisticas="false"
+		></ui-visor-doc>
+
+		<br />
+		<div class="mr-1-0"><span modulo-elemento="cantidad_no_validos"></span> </div>
     </div>
 
 </div>

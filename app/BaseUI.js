@@ -214,6 +214,9 @@ export class BaseUI extends HTMLElement {
 	crear(etiqueta = "div", atributos = {}, hijos = []) {
 		return BaseUI.crearElemento(etiqueta, atributos, hijos)
 	}
+	crearDeCadena(elem_str){
+		return BaseUI.crearElementoDeCadena(elem_str)
+	}
 
 	static crearElemento(etiqueta = "div", atributos = {}, hijos = []) {
 		const elem = document.createElement(etiqueta)
@@ -243,6 +246,15 @@ export class BaseUI extends HTMLElement {
 			else this.setAttribute("estado", estado)
 		}
 
+		elem.quitarClase = function(c)
+		{
+			if(this.classList.contains(c)) this.classList.remove(c);
+		}
+		elem.agregarClase = function(c)
+		{
+			if(!this.classList.contains(c)) this.classList.add(c);
+		}
+
 		return elem
 	}
 	static asignarAtributos(elem, atributos) {
@@ -265,6 +277,13 @@ export class BaseUI extends HTMLElement {
 		}
 		else if (hijos instanceof Node) elem.appendChild(hijos)
 		else if (hijos) elem.appendChild(document.createTextNode(hijos))
+	}
+
+	static crearElementoDeCadena(elem_str){
+		if(!elem_str) return null
+		const elem = document.createElement('div')
+		elem.innerHTML = elem_str
+		return elem.firstChild
 	}
 
 	static uuid(){
@@ -293,6 +312,9 @@ export class BaseUI extends HTMLElement {
 
 	_(t) {
 		return window.ui_idioma && window.ui_idioma[t] ? window.ui_idioma[t] : t
+	}
+	_iconos(t) {
+		return window.ui_iconos && window.ui_iconos[t] ? window.ui_iconos[t] : null
 	}
 }
 

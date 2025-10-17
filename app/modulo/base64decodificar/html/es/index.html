@@ -8,32 +8,45 @@
 </div>
 
 <div class="flex-v mr-1-cent w-max-60em">
+	<div class="panel">
+		<ui-visor-doc style="height: 600px; width: 100%;" modulo-elemento="decodificar-entrada"
+			btn_maximizar="false"
+			btn_copiar="true"
+			btn_pegar="true"
+			btn_limpiar="true"
+			btn_descargar="false"
+			archivo_descargar="archivo"
+			usar_cambiar_tamanio_texto="false"
+			usar_caja_busqueda="false"
 
-	<div class="flex-h flex-h-cent-h">
+			area_titulo="Entrada en base 64"
+			area_descripcion=""
+			usar_mensajes="true"
+			mostrar_estadisticas="false"
+		></ui-visor-doc>
+		<button modulo-elemento="decodificar-btn-procesar" class="btn">Decodificar</button>
+    </div>
 
-		<div class="panel">
-			<div class="flex-h">
-				<div class="mr-1-0"><b>Entrada en base 64:</b></div>
-				<button modulo-elemento="decodificar-btn-entrada-pegar" class="btn">Pegar</button>
-				<button modulo-elemento="decodificar-btn-entrada-copiar" class="btn">Copiar</button>
-				<button modulo-elemento="decodificar-btn-entrada-limpiar" class="btn">Limpiar</button>
-			</div>
-	        <textarea modulo-elemento="decodificar-entrada" class="control textarea-largo-v"></textarea>
-	        <button modulo-elemento="decodificar-btn-procesar" class="btn">Decodificar</button>
-	    </div>
+    <div class="panel">
+   		<ui-visor-doc style="height: 600px; width: 100%;" modulo-elemento="decodificar-salida"
+			btn_maximizar="false"
+			btn_copiar="true"
+			btn_pegar="false"
+			btn_limpiar="true"
+			btn_descargar="true"
+			archivo_descargar="archivo"
+			usar_cambiar_tamanio_texto="false"
 
-	    <div class="panel">
-			<div class="flex-h">
-				<div class="mr-1-0"><b>Salida decodificada:</b></div>
-				<button modulo-elemento="decodificar-btn-salida-copiar" class="btn">Copiar</button>
-				<button modulo-elemento="decodificar-btn-salida-limpiar" class="btn">Limpiar</button>
-			</div>
-	        <textarea modulo-elemento="decodificar-salida" class="control textarea-largo-v"></textarea>
-			<br />
-			<div modulo-elemento="decodificar-mime-detectado"></div>
-	    </div>
+			doc_titulo="Salida decodificada"
+			doc_descripcion=""
+			usar_mensajes="false"
+			mostrar_estadisticas="false"
+		></ui-visor-doc>
 
-	</div>
+		<br />
+		<div modulo-elemento="decodificar-mime-detectado"></div>
+    </div>
+
 
 	<div class="panel centrado-propio-h" modulo-elemento="decodificar-panel-contenedor-vista">
 		<div modulo-elemento="decodificar-contenedor-vista"></div>

@@ -598,7 +598,6 @@ audio:not([controls]) {
 	background-color: var(--bg-popup);
 	color: var(--fc-popup);
 	box-sizing: border-box !important;
-	width: fit-content !important;
 	min-width: 50% !important;
 	max-width: 90% !important;
 	box-shadow: 1px 1px 10px 1px var(--br-lightbox) !important;

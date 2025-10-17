@@ -8,32 +8,45 @@
 </div>
 
 <div class="flex-v mr-1-cent w-max-60em">
+	<div class="panel">
+		<ui-area-texto style="height: 600px; width: 100%;" modulo-elemento="codificar-entrada"
+			btn_maximizar="true"
+			btn_copiar="true"
+			btn_pegar="true"
+			btn_limpiar="true"
+			btn_descargar="true"
+			archivo_descargar="archivo"
+			usar_cambiar_tamanio_texto="false"
+			usar_caja_busqueda="false"
 
-	<div class="flex-h flex-h-cent-h">
+			area_titulo="Entrada a codificar"
+			area_descripcion=""
+			usar_mensajes="true"
+			mostrar_estadisticas="false"
+		></ui-area-texto>
+        <button modulo-elemento="codificar-btn-procesar" class="btn">Codificar</button>
+    </div>
 
-		<div class="panel">
-			<div class="flex-h">
-				<div class="mr-1-0"><b>Entrada en texto:</b></div>
-				<button modulo-elemento="codificar-btn-entrada-pegar" class="btn">Pegar</button>
-				<button modulo-elemento="codificar-btn-entrada-copiar" class="btn">Copiar</button>
-				<button modulo-elemento="codificar-btn-entrada-limpiar" class="btn">Limpiar</button>
-			</div>
-	        <textarea modulo-elemento="codificar-entrada" class="control textarea-largo-v"></textarea>
-	        <button modulo-elemento="codificar-btn-procesar" class="btn">Codificar</button>
-	    </div>
+    <div class="panel">
+   		<ui-visor-doc style="height: 600px; width: 100%;" modulo-elemento="codificar-salida"
+			btn_maximizar="false"
+			btn_copiar="true"
+			btn_pegar="false"
+			btn_limpiar="true"
+			btn_descargar="true"
+			archivo_descargar="archivo"
+			usar_cambiar_tamanio_texto="false"
+			colapsar_linea="true"
 
-	    <div class="panel">
-			<div class="flex-h">
-				<div class="mr-1-0"><b>Salida codificada:</b></div>
-				<button modulo-elemento="codificar-btn-salida-copiar" class="btn">Copiar</button>
-				<button modulo-elemento="codificar-btn-salida-limpiar" class="btn">Limpiar</button>
-			</div>
-	        <textarea modulo-elemento="codificar-salida" class="control textarea-largo-v"></textarea>
-			<br />
-			<input type="file" modulo-elemento="codificar-imp-archivo" />
-			<div modulo-elemento="codificar-mime-detectado"></div>
-	    </div>
+			doc_titulo="Salida codificada"
+			doc_descripcion=""
+			usar_mensajes="false"
+			mostrar_estadisticas="false"
+		></ui-visor-doc>
 
-	</div>
+		<br />
+		<input type="file" modulo-elemento="codificar-imp-archivo" />
+		<div modulo-elemento="codificar-mime-detectado"></div>
+    </div>
 
 </div>

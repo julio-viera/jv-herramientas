@@ -7,12 +7,22 @@
 
 <div class="flex-v mr-1-cent w-max-60em">
 
-    <div class="panel">
-	   	<div class="flex-h">
-			<div class="mr-1-0"><b>Input:</b></div>
-    		<button modulo-elemento="btn-entrada-pegar" class="btn">Paste</button>
-	   	</div>
-        <textarea modulo-elemento="entrada" class="control textarea-estandar"></textarea>
+	<div class="panel">
+		<ui-area-texto style="height: 500px; width: 100%;" modulo-elemento="entrada"
+		btn_maximizar="true"
+		btn_copiar="true"
+		btn_pegar="true"
+		btn_limpiar="true"
+		btn_descargar="true"
+		archivo_descargar="archivo"
+		usar_cambiar_tamanio_texto="true"
+		usar_caja_busqueda="false"
+
+		area_titulo="Input"
+		area_descripcion=""
+		usar_mensajes="true"
+		mostrar_estadisticas="true"
+		></ui-area-texto>
     </div>
 
     <div class="panel">
@@ -47,13 +57,21 @@
 			<input type="file" accept="image/*" modulo-elemento="qr-archivo" class="control" />
 			<img modulo-elemento="qr-imagen-vista" class="imagen imagen-h" />
 	   	</div>
-	   	<div class="">
-			<div class="flex-h">
-				<div class="mr-1-0"><b>QR Data</b></div>
-    			<button modulo-elemento="btn-lectura-copiar" class="btn">Copy</button>
-		   	</div>
-	    	<textarea modulo-elemento="qr-lectura" class="control textarea-largo-v"></textarea>
-	   	</div>
+		<ui-visor-doc style="height: 500px; width: 100%;" modulo-elemento="qr-lectura"
+			btn_maximizar="false"
+			btn_copiar="true"
+			btn_pegar="false"
+			btn_limpiar="true"
+			btn_descargar="true"
+			archivo_descargar="archivo"
+			usar_cambiar_tamanio_texto="false"
+
+			doc_titulo="QR Data"
+			doc_descripcion=""
+			usar_mensajes="false"
+			mostrar_estadisticas="false"
+		></ui-visor-doc>
+
     </div>
 
 </div>

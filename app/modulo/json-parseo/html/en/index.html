@@ -9,7 +9,25 @@
 
 <div class="flex-v mr-1-cent w-max-60em">
 
-	<div class="panel">
+    <div class="panel">
+		<ui-area-texto style="height: 500px; width: 100%;" modulo-elemento="entrada"
+			btn_maximizar="true"
+			btn_copiar="true"
+			btn_pegar="true"
+			btn_limpiar="true"
+			btn_descargar="true"
+			archivo_descargar="archivo"
+			usar_cambiar_tamanio_texto="true"
+			usar_caja_busqueda="false"
+
+			area_titulo="JSON input"
+			area_descripcion=""
+			usar_mensajes="true"
+			mostrar_estadisticas="true"
+		></ui-area-texto>
+    </div>
+
+   	<div class="panel">
 		<div class="flex-h flex-h-cent-v">
 			<div class="mr-1-0">
 				<b>Indentation </b>
@@ -21,25 +39,22 @@
 		</div>
     </div>
 
-
-	<div class="panel">
-		<div class="flex-h">
-			<div class="mr-1-0"><b>JSON input:</b></div>
-			<button modulo-elemento="btn-entrada-pegar" class="btn">Paste</button>
-			<button modulo-elemento="btn-entrada-copiar" class="btn">Copy</button>
-			<button modulo-elemento="btn-entrada-limpiar" class="btn">Clear</button>
-		</div>
-        <textarea modulo-elemento="entrada" class="control textarea-largo-v"></textarea>
-    </div>
-
     <div class="panel">
-		<div class="flex-h">
-			<div class="mr-1-0"><b>JSON Output:</b></div>
-			<button modulo-elemento="btn-salida-copiar" class="btn">Copy</button>
-			<button modulo-elemento="btn-salida-limpiar" class="btn">Clear</button>
-		</div>
-        <textarea modulo-elemento="salida" class="control textarea-largo-v"></textarea>
-    </div>
+  		<ui-visor-doc style="height: 500px; width: 100%;" modulo-elemento="salida"
+			btn_maximizar="false"
+			btn_copiar="true"
+			btn_pegar="false"
+			btn_limpiar="true"
+			btn_descargar="true"
+			archivo_descargar="archivo"
+			usar_cambiar_tamanio_texto="false"
 
+			doc_titulo="JSON Output"
+			doc_descripcion=""
+			usar_mensajes="false"
+			mostrar_estadisticas="false"
+		></ui-visor-doc>
+
+    </div>
 
 </div>

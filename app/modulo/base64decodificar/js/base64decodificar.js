@@ -14,11 +14,6 @@ export default class Base64Decodificar extends Modulo {
 		this.decodereal = this.decodereal.bind(this)
 		this.decodevista = this.decodevista.bind(this)
 		this.crearVistaPrevia = this.crearVistaPrevia.bind(this)
-		this.pegarEntrada = this.pegarEntrada.bind(this)
-		this.copiarEntrada = this.copiarEntrada.bind(this)
-		this.limpiarEntrada = this.limpiarEntrada.bind(this)
-		this.copiarSalida = this.copiarSalida.bind(this)
-		this.limpiarSalida = this.limpiarSalida.bind(this)
 
 		this._cargado = false;
 	}
@@ -44,14 +39,9 @@ export default class Base64Decodificar extends Modulo {
 	tomaUI(){
 
 		this.decodificar_entrada = this.querySelector('[modulo-elemento="decodificar-entrada"]')
-		this.decodificar_btn_entrada_pegar = this.querySelector('[modulo-elemento="decodificar-btn-entrada-pegar"]')
-		this.decodificar_btn_entrada_copiar = this.querySelector('[modulo-elemento="decodificar-btn-entrada-copiar"]')
-		this.decodificar_btn_entrada_limpiar = this.querySelector('[modulo-elemento="decodificar-btn-entrada-limpiar"]')
 
 		this.decodificar_btn_procesar = this.querySelector('[modulo-elemento="decodificar-btn-procesar"]')
 		this.decodificar_salida = this.querySelector('[modulo-elemento="decodificar-salida"]')
-		this.decodificar_btn_salida_copiar = this.querySelector('[modulo-elemento="decodificar-btn-salida-copiar"]')
-		this.decodificar_btn_salida_limpiar = this.querySelector('[modulo-elemento="decodificar-btn-salida-limpiar"]')
 
 
 		this.decodificar_link_descarga = this.querySelector('[modulo-elemento="decodificar-link-descarga"]')
@@ -59,21 +49,20 @@ export default class Base64Decodificar extends Modulo {
 		this.decodificar_panel_contenedor_vista = this.querySelector('[modulo-elemento="decodificar-panel-contenedor-vista"]')
 		this.decodificar_mime_detectado = this.querySelector('[modulo-elemento="decodificar-mime-detectado"]')
 
-		this.decodificar_entrada.onchange = this.decodificar
+		this.decodificar_entrada.addEventListener('VisorDocCambio', this.decodificar)
+		this.decodificar_salida.addEventListener('VisorDocLimpio', (e) => {
+			this.util.ocultar(this.decodificar_panel_contenedor_vista)
+			this.decodificar_mime_detectado.innerHTML = ''
+		})
+
 		this.decodificar_btn_procesar.onclick = this.decodificar
-		this.decodificar_btn_entrada_pegar.onclick = this.pegarEntrada
-		this.decodificar_btn_entrada_copiar.onclick = this.copiarEntrada
-		this.decodificar_btn_entrada_limpiar.onclick = this.limpiarEntrada
-		this.decodificar_btn_salida_copiar.onclick = this.copiarSalida
-		this.decodificar_btn_salida_limpiar.onclick = this.limpiarSalida
 
 		this.util.ocultar(this.decodificar_panel_contenedor_vista)
 	}
 
 	decodificar(){
 
-		if(!this.decodificar_entrada.value){
-			this.mensaje = this._('Sin datos que procesar.')
+		if(!this.decodificar_entrada.texto){
 			return
 		}
 
@@ -87,7 +76,7 @@ export default class Base64Decodificar extends Modulo {
 
 	decodereal(){
 		try{
-			this.decodificar_salida.value = atob(this.decodificar_entrada.value)
+			this.decodificar_salida.texto = atob(this.decodificar_entrada.texto)
 			this.mensaje = ''
 		}
 		catch(er){
@@ -98,12 +87,12 @@ export default class Base64Decodificar extends Modulo {
 	}
 
 	decodevista(){
-		const mime = this.util.mimeTypeDeBase64(this.decodificar_entrada.value.substring(0, 100))
+		const mime = this.util.mimeTypeDeBase64(this.decodificar_entrada.texto.substring(0, 100))
 
     if(mime){
     	this.decodificar_mime_detectado.innerHTML = 'MimeType: ' + mime
 
-     	this.crearVistaPrevia(this.decodificar_entrada.value, mime)
+     	this.crearVistaPrevia(this.decodificar_entrada.texto, mime)
     }
 	}
 
@@ -144,57 +133,6 @@ export default class Base64Decodificar extends Modulo {
 	    this.decodificar_link_descarga.setAttribute('download', this._('archivo'))
 	  }
   }
-
-  pegarEntrada(e){
-  	navigator.clipboard.readText()
-    .then((datos) => {
-    	//this.mensaje = this._('Pegado');
-     	this.decodificar_entrada.value = datos
-    })
-    .catch(er => {
-   		console.error(er)
-      this.mensaje = this._('Imposible realizar la acción.')
-    })
-
-  }
-
-  copiarEntrada(e){
- 		if(!this.decodificar_entrada.value) return
-
-  	navigator.clipboard.writeText(this.decodificar_entrada.value)
-   	.then(() => {
-   		//this.mensaje = this._('Copiado');
-    })
-    .catch(er => {
-  		console.error(er)
-     	this.mensaje = this._('Imposible realizar la acción.')
-    })
-
-  }
-
-	limpiarEntrada(e) {
-		this.decodificar_entrada.value = ''
-		this.mensaje = ''
-	}
-
-  copiarSalida(e){
- 		if(!this.decodificar_salida.value) return
-
-  	navigator.clipboard.writeText(this.decodificar_salida.value)
-   	.then(() => {
-   		//this.mensaje = this._('Copiado');
-    })
-    .catch(er => {
-  		console.error(er)
-     	this.mensaje = this._('Imposible realizar la acción.')
-    })
-
-  }
-
-	limpiarSalida(e) {
-		this.decodificar_salida.value = ''
-		this.mensaje = ''
-	}
 
 }
 
