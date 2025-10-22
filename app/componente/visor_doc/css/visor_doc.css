@@ -12,6 +12,7 @@
 	--bg-visordoc-texto: #fafeff;
 	--br-visordoc-texto: #bdbdbd;
 	--pd-visordoc-texto: 0.5em;
+	--br-visordoc-texto-foco: #494949;
 
 
 	--gp-visordoc-botones: 0.3em;
@@ -49,6 +50,7 @@
 	--bg-visordoc-texto: #4b4e4f;
 	--br-visordoc-texto: #838383;
 	--pd-visordoc-texto: 0.5em;
+	--br-visordoc-texto-foco: #dddddd;
 
 
 	--gp-visordoc-botones: 0.3em;
@@ -140,7 +142,12 @@ ui-visor-doc .visordoc-doc{
     color: var(--fc-visordoc-texto);
     overflow-wrap: anywhere;
     white-space: pre;
+    outline: none;
 }
+ui-visor-doc .visordoc-doc:focus{
+	border: solid 1px var(--br-visordoc-texto-foco);
+}
+
 ui-visor-doc .visordoc-doc-colapsar-linea{
 	white-space: normal;
 }

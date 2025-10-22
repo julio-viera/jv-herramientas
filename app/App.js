@@ -12,6 +12,7 @@ import { PantallaCarga } from "./componente/pantalla_carga/js/PantallaCarga.js"
 import { PantallaSinContenido } from "./componente/pantalla_sin_contenido/js/PantallaSinContenido.js"
 import { AreaTexto } from "./componente/areatexto/js/AreaTexto.js"
 import { VisorDoc } from "./componente/visor_doc/js/VisorDoc.js"
+import { CargadorDeArchivos } from "./componente/cargador_de_archivos/js/CargadorDeArchivos.js"
 
 window.addEventListener("load", () => {
 	window.App = new App()

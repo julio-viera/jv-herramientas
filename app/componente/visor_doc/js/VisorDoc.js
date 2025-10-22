@@ -104,7 +104,7 @@ export class VisorDoc extends Componente {
 		this._cont_botones = this.crear("div", {class: 'visordoc-cont-botones'}, [this.btn_maximizar, this.btn_copiar_texto, this.btn_pegar_texto, this.btn_limpiar_texto, this.btn_descargar_texto, this.range_tamanio_texto])
 		this._cont_mensaje = this.crear("div", {class: 'visordoc-cont-mensaje'}, [this._mensaje_estado])
 		this._cont_estadisticas = this.crear("div", {class: 'visordoc-cont-estadisticas'}, [this._estadisticas])
-		this._doc = this.crear("div", {class: 'visordoc-doc'})
+		this._doc = this.crear("div", {class: 'visordoc-doc', tabindex: 0})
 		this._cont_doc = this.crear("div", {class: 'visordoc-cont'}, [this._doc])
 		this._cont_contenido = this.crear("div", {class: 'visordoc-contenido'}, [this._cont_botones, this._cont_doc])
 
@@ -125,7 +125,19 @@ export class VisorDoc extends Componente {
 		this.btn_pegar_texto.onclick = this.pegarTexto
 		this.btn_limpiar_texto.onclick = this.limpiarTexto
 
-		this._doc.addEventListener('change', this.cambioTexto)
+		this._doc.addEventListener('change', this.cambioTexto);
+
+		this._doc.addEventListener('keydown', (e) => {
+
+			if(e.ctrlKey){
+				if(e.code == 'KeyC' && this.props.usar_btn_copiar){
+					this.copiarTexto()
+				}
+				else if(e.code == 'KeyV' && this.props.usar_btn_pegar){
+					this.pegarTexto()
+				}
+			}
+		});
 
 		this.range_tamanio_texto.addEventListener('input', (e) => {
 			this.ponerTamanioFuente(this.range_tamanio_texto.value)
@@ -227,9 +239,21 @@ export class VisorDoc extends Componente {
   }
 
   copiarTexto(){
- 		if(!this.texto) return
 
-  	navigator.clipboard.writeText(this.texto)
+   	var t = '';
+		if (window.getSelection) {
+	    t = window.getSelection().toString();
+		} else if (document.getSelection) {
+	    t = document.getSelection().toString();
+		} else if (document.selection) {
+	    t = document.selection.createRange().text;
+		}
+
+		if(!t) t = this.texto;
+
+		if (!t) return;
+
+  	navigator.clipboard.writeText(t)
    	.then(() => {
    		this.mensajeEstado = this._('Copiado');
     })

@@ -366,7 +366,7 @@ export class AreaTexto extends Componente {
 		this._area_fondo_color.innerHTML = ''
 		this._cont_conteo_lineas.innerHTML = ''
 		const ev = new Event('AreaTextoLimpio');
-		ev.visordoc = this;
+		ev.area_texto = this;
 		this.dispatchEvent(ev);
   }
 }

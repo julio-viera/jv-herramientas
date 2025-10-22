@@ -1,0 +1,170 @@
+
+:root {
+	--fc-carg-archivos: #000000;
+	--bg-carg-archivos: #ededed;
+	--br-carg-archivos: #bdbdbd;
+	--rd-carg-archivos: 0.1em;
+	--pd-carg-archivos: 0.5em;
+	--gp-carg-archivos: 0.5em;
+
+	--carg-archivos-sel-tamanio: 8em;
+	--fc-carg-archivos-sel: #000000;
+	--bg-carg-archivos-sel: #cfdee7;
+	--br-carg-archivos-sel: #98a9b3;
+	--rd-carg-archivos-sel: 0.3em;
+
+	--fc-vista-archivo: #000000;
+	--bg-vista-archivo: #f7f7f7;
+	--br-vista-archivo: #bdbdbd;
+	--rd-vista-archivo: 0.1em;
+	--pd-vista-archivo: 0.0em;
+	--gp-vista-archivo: 0.5em;
+	--bg-vista-archivo-cabecera: #e3e3e3;
+	--pd-vista-archivo-cabecera: 0.3em;
+
+	--pd-vista-archivo-cont: 1.0em;
+	--br-vista-archivo-fondo: #2127e1b3;
+	--br-vista-archivo-fondo-espacio: 0.5em;
+	--br-vista-archivo-fondo-ancho: 1px;
+
+	--vista-archivo-tamanio-previa: 20em;
+}
+
+:root[data-theme="oscuro"] {
+	--fc-carg-archivos: #ddd;
+	--bg-carg-archivos: #3a3a3b;
+	--br-carg-archivos: #6b6b6b;
+	--rd-carg-archivos: 0.1em;
+	--pd-carg-archivos: 0.5em;
+	--gp-carg-archivos: 0.5em;
+
+	--carg-archivos-sel-tamanio: 8em;
+	--fc-carg-archivos-sel: #ddd;
+	--bg-carg-archivos-sel: #3c5665;
+	--br-carg-archivos-sel: #ddd;
+	--rd-carg-archivos-sel: 0.3em;
+
+	--fc-vista-archivo: #ddd;
+	--bg-vista-archivo: #3a3a3b;
+	--br-vista-archivo: #bdbdbd;
+	--rd-vista-archivo: 0.1em;
+	--pd-vista-archivo: 0.0em;
+	--gp-vista-archivo: 0.5em;
+	--bg-vista-archivo-cabecera: #3c5665;
+	--pd-vista-archivo-cabecera: 0.3em;
+
+	--pd-vista-archivo-cont: 1.0em;
+	--br-vista-archivo-fondo: #2127e1b3;
+	--br-vista-archivo-fondo-espacio: 0.5em;
+	--br-vista-archivo-fondo-ancho: 1px;
+
+	--vista-archivo-tamanio-previa: 20em;
+}
+
+ui-cargador-de-archivos{
+	display: block;
+	padding: var(--pd-carg-archivos);
+    background: var(--bg-carg-archivos);
+    color: var(--fc-carg-carg-archivos);
+    border: solid 1px var(--br-carg-archivos);
+    border-radius: var(--rd-carg-archivos);
+    width: fit-content;
+    height: fit-content;
+}
+
+
+ui-cargador-de-archivos .cargador-de-archivos-cont-file{
+	position: relative;
+	display: block;
+	width: var(--carg-archivos-sel-tamanio);
+	height: var(--carg-archivos-sel-tamanio);
+}
+ui-cargador-de-archivos .cargador-de-archivos-file{
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: var(--carg-archivos-sel-tamanio);
+	height: var(--carg-archivos-sel-tamanio);
+	opacity: 0;
+	z-index: 10;
+	padding: 0;
+    margin: 0;
+    border: none;
+    font-size: 1em;
+    line-height: 1em;
+}
+ui-cargador-de-archivos .cargador-de-archivos-file-visible{
+	display: grid;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: var(--carg-archivos-sel-tamanio);
+	height: var(--carg-archivos-sel-tamanio);
+	opacity: 1;
+	z-index: 1;
+	color: var(--fc-carg-archivos-sel);
+	background-color: var(--bg-carg-archivos-sel);
+	border: solid 1px var(--br-carg-archivos-sel);
+	border-radius: var(--rd-carg-archivos-sel);
+}
+ui-cargador-de-archivos .cargador-de-archivos-file-visible svg{
+	width: 3em;
+	height: 3em;
+	align-self: center;
+    justify-self: center;
+}
+
+ui-cargador-de-archivos .cargador-de-archivos-cont-vistas-previas{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 1em;
+}
+ui-cargador-de-archivos .cargador-de-archivos-etiqueta{
+	padding: 0.5em;
+}
+ui-cargador-de-archivos .cargador-de-archivos-mensaje{
+	padding: 0.5em;
+}
+
+
+ui-vista-archivo{
+	display: block;
+	padding: var(--pd-vista-archivo);
+    background: var(--bg-vista-archivo);
+    color: var(--fc-carg-vista-archivo);
+    border: solid 1px var(--br-vista-archivo);
+    border-radius: var(--rd-vista-archivo);
+    width: fit-content;
+}
+ui-vista-archivo .vista-archivo-cabecera{
+	display: grid;
+    grid-template-columns: auto 3em;
+    align-items: center;
+    overflow-wrap: anywhere;
+    background-color: var(--bg-vista-archivo-cabecera);
+    padding: var(--pd-vista-archivo-cabecera);
+}
+ui-vista-archivo .vista-archivo-cont{
+	padding: var(--pd-vista-archivo-cont);
+	background-image: linear-gradient(var(--br-vista-archivo-fondo) var(--br-vista-archivo-fondo-ancho), transparent var(--br-vista-archivo-fondo-ancho)), linear-gradient(90deg, var(--br-vista-archivo-fondo) var(--br-vista-archivo-fondo-ancho), transparent var(--br-vista-archivo-fondo-ancho));
+	background-size: var(--br-vista-archivo-fondo-espacio) var(--br-vista-archivo-fondo-espacio);
+}
+ui-vista-archivo .vista-archivo-item{
+	width: var(--vista-archivo-tamanio-previa);
+	height: auto;
+	max-width: var(--vista-archivo-tamanio-previa);
+	max-height: var(--vista-archivo-tamanio-previa);
+	display: block;
+    margin: 0 auto;
+}
+ui-vista-archivo textarea.vista-archivo-item {
+    resize: none;
+    width: var(--vista-archivo-tamanio-previa);
+    height: var(--vista-archivo-tamanio-previa);
+    background: var(--bg-vista-archivo);
+    color: var(--fc-carg-vista-archivo);
+}

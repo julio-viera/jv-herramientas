@@ -55,12 +55,10 @@ export default class CodigosQR extends Modulo {
 		this.qr_parar_camara = this.querySelector('[modulo-elemento="qr-parar-camara"]')
 		this.qr_archivo = this.querySelector('[modulo-elemento="qr-archivo"]')
 		this.qr_lectura = this.querySelector('[modulo-elemento="qr-lectura"]')
-		this.qr_imagen_vista = this.querySelector('[modulo-elemento="qr-imagen-vista"]')
 
   	this.qr_scanner = new QrScanner(
     								this.qr_video,
             				(res) => {
-                   		this.qr_imagen_vista.src = ''
             					this.lecturaQR(res.data)
                   	},
                    	{
@@ -80,10 +78,10 @@ export default class CodigosQR extends Modulo {
 
 		this.qr_listado_camaras.onchange = this.seleccionarCamara
 
-	 	this.qr_archivo.onchange = () => {
-    	this.qr_lectura.texto = ''
-    	this.escanearImagen()
-    }
+		this.qr_archivo.addEventListener('CargadorDeArchivosCarga', (e) => {
+			this.qr_lectura.texto = ''
+			this.escanearImagen()
+		});
 
 		this.qr_iniciar_camara.onclick = this.iniciarCamara
 		this.qr_parar_camara.onclick = this.detenerCamara
@@ -129,15 +127,13 @@ export default class CodigosQR extends Modulo {
 
   escanearImagen()
   {
-  	const archivo = this.qr_archivo.files[0] ?? null
+		this.mensaje = '';
+  	const archivo = this.qr_archivo.archivos[0] ?? null
    	if(!archivo) return
-
-    	this.qr_imagen_vista.src = ''
 
 	    QrScanner.scanImage(archivo)
 		    .then((res) => {
 					this.lecturaQR(res)
-					this.qr_imagen_vista.src = URL.createObjectURL(archivo)
 				})
 				.catch(error => {
 					console.log(error)
