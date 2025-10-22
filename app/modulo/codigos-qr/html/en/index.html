@@ -53,9 +53,14 @@
 		</div>
 
 	   	<div class="flex-v">
-			<div class="mr-1-0"><b>Scan from image</b></div>
-			<input type="file" accept="image/*" modulo-elemento="qr-archivo" class="control" />
-			<img modulo-elemento="qr-imagen-vista" class="imagen imagen-h" />
+			<ui-cargador-de-archivos modulo-elemento="qr-archivo"
+				etiqueta="Scan from image"
+				usar_mensajes="true"
+				mostrar_vista_previa="true"
+				tipos_archivos="image/*"
+				maximo_archivos="1"
+				peso_maximo_archivos_mb="50"
+			</ui-cargador-de-archivos>
 	   	</div>
 		<ui-visor-doc style="height: 500px; width: 100%;" modulo-elemento="qr-lectura"
 			btn_maximizar="false"
