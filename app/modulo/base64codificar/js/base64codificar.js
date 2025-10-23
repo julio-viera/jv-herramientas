@@ -46,7 +46,7 @@ export default class Base64Codificar extends Modulo {
 
 		this.codificar_entrada.addEventListener('AreaTextoCambio', this.codificar)
 		this.codificar_btn_procesar.onclick = this.codificar
-		this.codificar_imp_archivo.onchange = this.codificarArchivo
+		this.codificar_imp_archivo.addEventListener('CargadorDeArchivosCarga', this.codificarArchivo);
 
 	}
 
@@ -76,7 +76,7 @@ export default class Base64Codificar extends Modulo {
 
 	codificarArchivo(e){
 
-		const arch = this.codificar_imp_archivo.files[0]
+		const arch = this.codificar_imp_archivo.archivos[0]
 		if(!arch) return
 
 		this.codificar_entrada.texto = ''

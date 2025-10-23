@@ -98,6 +98,7 @@ ui-cargador-de-archivos .cargador-de-archivos-file-visible{
 	display: grid;
 	justify-content: center;
 	align-items: center;
+	text-align: center;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -167,4 +168,7 @@ ui-vista-archivo textarea.vista-archivo-item {
     height: var(--vista-archivo-tamanio-previa);
     background: var(--bg-vista-archivo);
     color: var(--fc-carg-vista-archivo);
+}
+ui-vista-archivo textarea.vista-archivo-item[disabled] {
+    filter: brightness(0.9);
 }

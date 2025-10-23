@@ -44,9 +44,15 @@
 			mostrar_estadisticas="false"
 		></ui-visor-doc>
 
-		<br />
-		<input type="file" modulo-elemento="codificar-imp-archivo" />
-		<div modulo-elemento="codificar-mime-detectado"></div>
+ 	<ui-cargador-de-archivos modulo-elemento="codificar-imp-archivo"
+		etiqueta="Codificar Archivo"
+		usar_mensajes="true"
+		mostrar_vista_previa="true"
+		tipos_archivos="*"
+		maximo_archivos="1"
+		peso_maximo_archivos_mb="50"
+	</ui-cargador-de-archivos>
+
     </div>
 
 </div>
