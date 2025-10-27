@@ -86,8 +86,7 @@ ui-visor-doc{
     color: var(--fc-visordoc);
     border: solid 1px var(--br-visordoc);
     border-radius: var(--rd-visordoc);
-    min-width: 400px;
-    min-height: 400px;
+    min-height: 500px;
 }
 
 .visor_doc_espacio_1{

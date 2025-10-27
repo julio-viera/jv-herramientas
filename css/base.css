@@ -921,6 +921,9 @@ app-configuracion{
 		align-items: center;
 		min-height: 3em;
 	}
+	.panel {
+		padding: 0.5em;
+	}
 }
 @media only screen and (max-width: 500px) {
 
@@ -934,5 +937,8 @@ app-configuracion{
 	.grilla-c1{
 		gap: 0.3em;
 		margin: 0.4em auto;
+	}
+	.panel {
+		padding: 0em;
 	}
 }

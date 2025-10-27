@@ -110,7 +110,7 @@ export class AppConfiguracion extends BaseUI {
 				var opt = document.createElement("option")
 				opt.value = codigo
 				opt.text = this._(nombre)
-				if(codigo == this._configuracion.ui.tema) opt.selected = true
+				if(codigo == this.tema_asignado) opt.selected = true
 				this.ui_tema.add(opt, 0)
 			}
 		}
@@ -226,7 +226,7 @@ export class AppConfiguracion extends BaseUI {
 
 					this._configuracion.ui.escala = parseFloat(this.almacenaje.obtener("ui-escala") ?? this._configuracion.ui.escala ?? 1.0)
 					this._configuracion.ui.idioma = idioma
-					this._configuracion.ui.tema = this.almacenaje.obtener("ui-tema") ?? tema_inicio
+					this.tema_asignado = this.almacenaje.obtener("ui-tema") ?? tema_inicio
 					this._configuracion.ui.distribucion = this.almacenaje.obtener("ui-distribucion") ?? this._configuracion.ui.distribucion ?? "arriba"
 
 
@@ -235,15 +235,19 @@ export class AppConfiguracion extends BaseUI {
 						if(!seleccionado){
 							if(event.matches){
 								document.documentElement.setAttribute('data-theme', this._configuracion.ui.tema_oscuro)
+								this.tema_asignado = this._configuracion.ui.tema_oscuro
 							}
 							else{
 								document.documentElement.setAttribute('data-theme', this._configuracion.ui.tema)
+								this.tema_asignado = this._configuracion.ui.tema
 							}
+
+							if(this.ui_tema && this.tema_asignado) this.ui_tema.value = this.tema_asignado
 						}
 					});
 
 					document.documentElement.style.fontSize = Math.ceil(14.0 * this._configuracion.ui.escala) + "px"
-					document.documentElement.setAttribute('data-theme', this._configuracion.ui.tema)
+					document.documentElement.setAttribute('data-theme', this.tema_asignado)
 					document.getElementsByTagName('main')[0].setAttribute('data-distribucion', this._configuracion.ui.distribucion)
 
 					const evento = new Event('AppConfiguracionCargada')

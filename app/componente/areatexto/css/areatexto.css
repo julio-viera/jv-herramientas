@@ -97,8 +97,7 @@ ui-area-texto{
     color: var(--fc-areatexto);
     border: solid 1px var(--br-areatexto);
     border-radius: var(--rd-areatexto);
-    min-width: 400px;
-    min-height: 400px;
+    min-height: 500px;
 }
 
 ui-area-texto input[type="range"]{
