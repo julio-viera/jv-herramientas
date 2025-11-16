@@ -23,6 +23,7 @@ export default class URLParametros extends Modulo {
 		this.copiarDecoEntrada = this.copiarDecoEntrada.bind(this)
 		this.limpiarDecoEntrada = this.limpiarDecoEntrada.bind(this)
 		this.copiarDecoSalida = this.copiarDecoSalida.bind(this)
+		this.copiarTodaDecoSalida = this.copiarTodaDecoSalida.bind(this)
 
 		this._cargado = false
 	}
@@ -77,7 +78,7 @@ export default class URLParametros extends Modulo {
 		this.btn_decode_pegar.onclick = this.pegarDecoEntrada
 		this.btn_decode_copiar.onclick = this.copiarDecoEntrada
 		this.btn_decode_limpiar.onclick = this.limpiarDecoEntrada
-		this.btn_decode_salida_copiar.onclick = this.copiarDecoSalida
+		this.btn_decode_salida_copiar.onclick = this.copiarTodaDecoSalida
 
 		this.decode_entrada.addEventListener('change', this.decodificarParametros)
 	}
@@ -91,11 +92,60 @@ export default class URLParametros extends Modulo {
 	}
 
 	decodificarParametros(){
-		const params = this.decode_entrada.value.trim()
+		const entrada = this.decode_entrada.value.trim()
 
-		if(!params) return
+		if(!entrada) return
 
-		this.decode_salida.value = decodeURI(params)
+		this.params_decodificados = {};
+
+		const tmp = entrada.split('?');
+		const parametros = tmp.length > 1 ? tmp[1] : tmp[0];
+
+		const partes = parametros.split('&');
+		const filas = [];
+		let filas_c = 0;
+		for(const p of partes){
+			filas_c++;
+			const t = p.split('=');
+			const nombre = t[0];
+			const valor = t[1] ? decodeURIComponent(t[1]) : '';
+			const fila = document.createElement('tr');
+			fila.setAttribute('class', 'pd-1' + (filas_c % 2 == 0 ? ' par' : ' impar'));
+			fila.setAttribute('url_param_deco', filas_c);
+			const td_nombre = document.createElement('td');
+			td_nombre.textContent = nombre;
+			td_nombre.id = 'url-deco-param-nombre-' + filas_c;
+
+			const td_valor = document.createElement('td');
+			td_valor.textContent = valor;
+			td_valor.id = 'url-deco-param-valor-' + filas_c;
+
+			const td_btn = document.createElement('td');
+			const cp_btn = document.createElement('button');
+			cp_btn.textContent = this._('Copiar');
+			cp_btn.setAttribute('fila_c', filas_c);
+			cp_btn.setAttribute('url_deco_param_nombre', nombre);
+			cp_btn.setAttribute('class', 'btn');
+			cp_btn.onclick = (e) => {
+				this.copiarDecoSalida(e.target.getAttribute('url_deco_param_nombre'));
+			}
+
+			td_btn.appendChild(cp_btn);
+
+			fila.append(td_nombre, td_valor, td_btn);
+			this.params_decodificados[nombre] = valor;
+
+			filas.push(fila);
+		}
+
+		const tabla = document.createElement('table');
+
+		for(const f of filas){
+			tabla.appendChild(f);
+		}
+
+		this.decode_salida.innerHTML = '';
+		this.decode_salida.appendChild(tabla);
 	}
 
 	pegarEncoEntrada(e){
@@ -180,18 +230,45 @@ export default class URLParametros extends Modulo {
 	}
 
 
-	copiarDecoSalida(e){
-  	if(!this.decode_salida.value) return
+	copiarDecoSalida(nombre){
+		if (!this.params_decodificados) return;
 
-   	navigator.clipboard.writeText(this.decode_salida.value)
+		if (!this.params_decodificados[nombre]) return;
+
+		const val = this.params_decodificados[nombre];
+
+  	if(!val) return
+
+   	navigator.clipboard.writeText(val)
     	.then(() => {
-    		//this.mensaje = this._('Copiado');
+    		this.mensaje = this._('Copiado');
      	})
      	.catch(er => {
     		console.error(er)
       	this.mensaje = this._('Imposible realizar la acción.')
       })
   }
+  copiarTodaDecoSalida(){
+
+		if (!this.params_decodificados) return;
+
+		let val = '';
+		for(const nombre in this.params_decodificados){
+			val += nombre + '=' + this.params_decodificados[nombre] + "\n";
+		}
+
+   	if(!val) return
+
+    	navigator.clipboard.writeText(val)
+     	.then(() => {
+     		this.mensaje = this._('Copiado');
+      	})
+      	.catch(er => {
+     		console.error(er)
+       	this.mensaje = this._('Imposible realizar la acción.')
+       })
+   }
+
 }
 
 customElements.define("ui-url-parametros-modulo", URLParametros)

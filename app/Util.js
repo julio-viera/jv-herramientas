@@ -402,4 +402,9 @@ export class Util
 		}
 		return null
 	}
+	static escaparHTML(cadena){
+	  return cadena.replace(/[\x26\x0A\x3c\x3e\x22\x27]/g, function(r) {
+				return "&#" + r.charCodeAt(0) + ";";
+	  });
+	}
 }
